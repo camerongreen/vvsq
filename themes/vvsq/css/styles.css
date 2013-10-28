@@ -1766,8 +1766,38 @@ tr.selected td {
 /* SMACSS theme rules */
 /* @import "theme-A"; */
 /* @import "theme-B"; */
-/* line 1, ../sass/_custom.scss */
+/* line 3, ../sass/_custom.scss */
 img.admin-menu-icon {
   height: 16px;
   width: 16px;
+}
+
+/* line 9, ../sass/_custom.scss */
+#block-menu-menu-top-menu ul.menu {
+  list-style-type: none;
+  display: inline;
+  padding-left: 0px;
+}
+/* line 13, ../sass/_custom.scss */
+#block-menu-menu-top-menu ul.menu li {
+  list-style: none;
+  display: inline;
+}
+/* line 16, ../sass/_custom.scss */
+#block-menu-menu-top-menu ul.menu li a {
+  text-decoration: none;
+  color: black;
+}
+/* line 19, ../sass/_custom.scss */
+#block-menu-menu-top-menu ul.menu li a:before {
+  content: "/ ";
+}
+/* line 23, ../sass/_custom.scss */
+#block-menu-menu-top-menu ul.menu li:first-child a:before {
+  content: "";
+}
+
+/* line 30, ../sass/_custom.scss */
+#block-search-form {
+  float: right;
 }

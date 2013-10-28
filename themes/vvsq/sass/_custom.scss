@@ -1,4 +1,32 @@
+$link-color: black;
+
 img.admin-menu-icon {
   height: 16px;
   width: 16px;
+}
+
+#block-menu-menu-top-menu {
+  ul.menu {
+    list-style-type: none;
+    display: inline;
+    padding-left: 0px;
+    li {
+      list-style: none;
+      display: inline;
+      a {
+        text-decoration: none;
+        color: $link-color;
+        &:before {
+          content: "/ ";
+        }
+      }
+      &:first-child a:before {
+        content: "";
+      }
+    }
+  }
+}
+
+#block-search-form {
+  float: right;
 }
