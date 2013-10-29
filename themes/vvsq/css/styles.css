@@ -1801,3 +1801,23 @@ img.admin-menu-icon {
 #block-search-form {
   float: right;
 }
+
+/* line 34, ../sass/_custom.scss */
+#main #navigation {
+  width: 900px;
+  top: -18px;
+  left: 400px;
+}
+/* line 39, ../sass/_custom.scss */
+#main #navigation li a {
+  text-decoration: none;
+  color: black;
+}
+/* line 42, ../sass/_custom.scss */
+#main #navigation li a:before {
+  content: "| ";
+}
+/* line 46, ../sass/_custom.scss */
+#main #navigation li:first-child a:before {
+  content: "";
+}

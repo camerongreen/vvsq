@@ -1,0 +1,52 @@
+/*
+Syntax error: File to import not found or unreadable: compass/support.
+              Load path: /www/vvsq.test/vvsq/themes/vvsq/sass
+        on line 113 of _init.scss
+        from line 10 of styles.scss
+
+Backtrace:
+_init.scss:113
+styles.scss:10
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/import_node.rb:45:in `import'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/import_node.rb:28:in `imported_file'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/import_node.rb:37:in `css_import?'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `block in visit_import'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `map'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:227:in `visit_import'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:53:in `map'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/base.rb:37:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/tree/root_node.rb:20:in `render'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/engine.rb:315:in `_render'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/engine.rb:262:in `render'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:201:in `each'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/plugin.rb:81:in `update_stylesheets'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/exec.rb:425:in `watch_or_update'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/exec.rb:307:in `process_result'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/exec.rb:41:in `parse'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/lib/sass/exec.rb:21:in `parse!'
+/usr/lib/ruby/gems/1.9.1/gems/sass-3.2.7/bin/scss:9:in `<top (required)>'
+/usr/local/bin/scss:23:in `load'
+/usr/local/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: compass/support.\A               Load path: /www/vvsq.test/vvsq/themes/vvsq/sass\A         on line 113 of _init.scss\A         from line 10 of styles.scss"; }

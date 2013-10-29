@@ -30,3 +30,21 @@ img.admin-menu-icon {
 #block-search-form {
   float: right;
 }
+
+#main #navigation {
+  width: 900px;
+  top: -18px;
+  left: 400px;
+  li {
+    a {
+      text-decoration: none;
+      color: $link-color;
+      &:before {
+        content: "| ";
+      }
+    }
+    &:first-child a:before {
+      content: "";
+    }
+  }
+}

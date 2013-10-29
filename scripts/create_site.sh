@@ -110,6 +110,10 @@ chgrp -R ${WEBSERVER_GROUP} ${PUBLIC_DIR}/sites/default/files
 chmod ug+w ${PUBLIC_DIR}/sites/default/
 chmod ug+w ${PUBLIC_DIR}/sites/default/files
 
+# install the jquery.cycle plugin
+mkdir ${PUBLIC_DIR}/sites/all/libraries/jquery.cycle
+wget -O ${PUBLIC_DIR}/sites/all/libraries/jquery.cycle/jquery.cycle.all.min.js https://raw.github.com/malsup/cycle/master/jquery.cycle.all.js
+
 pushd $PUBLIC_DIR
 drush -y pm-disable toolbar
 drush -y pm-enable admin admin_menu advanced_forum advanced_help contact ctools date devel email features forum googleanalytics imageapi imce advanced_help imce_wysiwyg jquery_plugin jquery_update libraries module_filter mollom pathauto site_map strongarm token uc_attribute uc_cart uc_catalog uc_order uc_payment uc_paypal uc_product uc_store views views_slideshow views_slideshow_cycle views_ui webform wysiwyg xmlsitemap xmlsitemap_engines xmlsitemap_menu xmlsitemap_node xmlsitemap_taxonomy zen
@@ -118,9 +122,11 @@ drush -y pm-enable admin admin_menu advanced_forum advanced_help contact ctools 
 drush -y pm-enable vvsq
 drush vset theme_default vvsq
 
+
 # I won't -y this as you should note any new additions 
 # and add to the drush.make script to save yourself time in the future
 drush pm-update
+
+# fin
+drush cc all
 popd
-
-
