@@ -83,6 +83,9 @@ projects[zen][version] = "5.4"
 ; ---------
 libraries[jquery][download][type] = "file"
 libraries[jquery][download][url] = "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+
 libraries[jqueryui][download][type] = "file"
 libraries[jqueryui][download][url] = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"
 
+libraries[ckeditor][download][type] = "file"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor%20for%20Drupal/CKEditor%204.0.1%20for%20Drupal/ckeditor_4.0.1_for_drupal_7.zip"
