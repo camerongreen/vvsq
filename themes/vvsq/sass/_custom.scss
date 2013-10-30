@@ -27,6 +27,21 @@ img.admin-menu-icon {
   }
 }
 
+#social-media {
+  position: absolute;
+  right: 0px;
+  top: 50px;
+  ul {
+    list-style-type: none;
+    display: inline;
+    padding-left: 0px;
+    li {
+      list-style: none;
+      display: inline;
+    }
+  }
+}
+
 #block-search-form {
   float: right;
 }

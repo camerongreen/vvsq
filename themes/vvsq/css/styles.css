@@ -1798,26 +1798,44 @@ img.admin-menu-icon {
 }
 
 /* line 30, ../sass/_custom.scss */
+#social-media {
+  position: absolute;
+  right: 0px;
+  top: 50px;
+}
+/* line 34, ../sass/_custom.scss */
+#social-media ul {
+  list-style-type: none;
+  display: inline;
+  padding-left: 0px;
+}
+/* line 38, ../sass/_custom.scss */
+#social-media ul li {
+  list-style: none;
+  display: inline;
+}
+
+/* line 45, ../sass/_custom.scss */
 #block-search-form {
   float: right;
 }
 
-/* line 34, ../sass/_custom.scss */
+/* line 49, ../sass/_custom.scss */
 #main #navigation {
   width: 900px;
   top: -18px;
   left: 400px;
 }
-/* line 39, ../sass/_custom.scss */
+/* line 54, ../sass/_custom.scss */
 #main #navigation li a {
   text-decoration: none;
   color: black;
 }
-/* line 42, ../sass/_custom.scss */
+/* line 57, ../sass/_custom.scss */
 #main #navigation li a:before {
   content: "| ";
 }
-/* line 46, ../sass/_custom.scss */
+/* line 61, ../sass/_custom.scss */
 #main #navigation li:first-child a:before {
   content: "";
 }

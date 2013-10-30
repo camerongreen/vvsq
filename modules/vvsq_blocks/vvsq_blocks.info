@@ -1,0 +1,6 @@
+name = VVSQ Blocks
+description = Exports blocks used on the VVSQ site
+core = 7.x
+package = VVSQ
+version = 7.x-1.0
+project = vvsq_blocks

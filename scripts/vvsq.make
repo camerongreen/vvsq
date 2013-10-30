@@ -13,6 +13,8 @@ projects[advanced_help][version] = "1.0"
 
 projects[advanced_forum][version] = "2.3"
 
+projects[captcha][version] = "1.0"
+
 projects[ctools][version] = "1.3"
 
 projects[ckeditor][version] = "1.13"

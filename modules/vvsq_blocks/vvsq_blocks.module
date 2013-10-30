@@ -1,0 +1,47 @@
+<?php
+/**
+ * @file
+ * Provides blocks for the content type section home
+ * initially the image display at the top and the list
+ * of related links at the left
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function vvsq_blocks_block_info() {
+  return array(
+    "vvsq_social_media" => array(
+      "info" => t("Social Media Links"),
+    ), 
+  ); 
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function vvsq_blocks_block_view($delta = "") {
+  switch ($delta) {
+    case "vvsq_social_media":
+      $block["subject"] = t("VVSQ Social Media Links");
+      if (user_access("access content")) {
+        $block["content"] = theme("vvsq_social_media", array());
+      }
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_theme();
+ */
+function vvsq_blocks_theme() {
+  return array(
+      "vvsq_social_media" => array(
+        "template" => "theme/social-media",
+        "variables" => array(
+        )
+      ),
+    );
+}
