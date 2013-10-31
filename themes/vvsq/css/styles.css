@@ -1802,55 +1802,87 @@ img.admin-menu-icon {
   content: "";
 }
 
-/* line 31, ../sass/_custom.scss */
+/* line 32, ../sass/_custom.scss */
+nav.breadcrumb a {
+  text-decoration: none;
+  color: black;
+}
+/* line 35, ../sass/_custom.scss */
+nav.breadcrumb a:before {
+  content: "/ ";
+}
+/* line 39, ../sass/_custom.scss */
+nav.breadcrumb:first-child a:before {
+  content: "";
+}
+
+/* line 44, ../sass/_custom.scss */
 #block-menu-menu-bottom-menu {
   text-align: center;
 }
 
-/* line 35, ../sass/_custom.scss */
+/* line 48, ../sass/_custom.scss */
 #page #header {
   position: relative;
 }
 
-/* line 39, ../sass/_custom.scss */
+/* line 52, ../sass/_custom.scss */
 #social-media {
   position: absolute;
   right: 0px;
   margin-top: 55px;
 }
-/* line 43, ../sass/_custom.scss */
+/* line 56, ../sass/_custom.scss */
 #social-media ul {
   list-style-type: none;
   display: inline;
   padding-left: 0px;
 }
-/* line 47, ../sass/_custom.scss */
+/* line 60, ../sass/_custom.scss */
 #social-media ul li {
   list-style: none;
   display: inline;
 }
 
-/* line 54, ../sass/_custom.scss */
+/* line 67, ../sass/_custom.scss */
 #block-search-form {
   float: right;
 }
 
-/* line 58, ../sass/_custom.scss */
+/* line 71, ../sass/_custom.scss */
 #main #navigation {
   width: 900px;
   top: -18px;
   left: 400px;
 }
-/* line 63, ../sass/_custom.scss */
+/* line 76, ../sass/_custom.scss */
 #main #navigation li a {
   text-decoration: none;
   color: black;
 }
-/* line 66, ../sass/_custom.scss */
+/* line 79, ../sass/_custom.scss */
 #main #navigation li a:before {
   content: "| ";
 }
-/* line 70, ../sass/_custom.scss */
+/* line 83, ../sass/_custom.scss */
 #main #navigation li:first-child a:before {
   content: "";
+}
+
+/* line 89, ../sass/_custom.scss */
+#block-block-2 {
+  margin-bottom: 2em;
+}
+/* line 91, ../sass/_custom.scss */
+#block-block-2 div {
+  width: 33.3%;
+  float: left;
+}
+/* line 95, ../sass/_custom.scss */
+#block-block-2 div:nth-child(3) {
+  text-align: center;
+}
+/* line 98, ../sass/_custom.scss */
+#block-block-2 div:nth-child(4) img {
+  float: right;
 }

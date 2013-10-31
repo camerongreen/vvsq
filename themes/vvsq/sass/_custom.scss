@@ -28,6 +28,19 @@ img.admin-menu-icon {
   }
 }
 
+nav.breadcrumb {
+  a {
+    text-decoration: none;
+    color: $link-color;
+    &:before {
+      content: "/ ";
+    }
+  }
+  &:first-child a:before {
+    content: "";
+  }
+}
+
 #block-menu-menu-bottom-menu {
   text-align: center;
 }
@@ -70,5 +83,19 @@ img.admin-menu-icon {
     &:first-child a:before {
       content: "";
     }
+  }
+}
+
+#block-block-2 {
+  margin-bottom: 2em;
+  div {
+    width: 33.3%;
+    float: left;
+  }
+  div:nth-child(3) {
+    text-align: center;
+  }
+  div:nth-child(4) img {
+    float: right;
   }
 }
