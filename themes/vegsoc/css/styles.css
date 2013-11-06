@@ -1,0 +1,38 @@
+/* Light Gold */
+/* Medium Gold */
+/* Deep Gold */
+/* Deep Brown */
+/* Subdued Deep Brown */
+/* Title orange */
+/* line 18, ../scss/styles.scss */
+body #header {
+  padding: 1ex;
+}
+/* line 21, ../scss/styles.scss */
+body #logo {
+  max-width: 265px;
+}
+/* line 23, ../scss/styles.scss */
+body #logo img {
+  height: 120px;
+}
+/* line 28, ../scss/styles.scss */
+body #primary-menu > ul > li:hover {
+  background-color: #f0f078;
+}
+/* line 30, ../scss/styles.scss */
+body #primary-menu > ul > li:hover a div, body #primary-menu > ul > li:hover a span {
+  color: #444444;
+}
+/* line 34, ../scss/styles.scss */
+body #primary-menu > ul > li a div, body #primary-menu > ul > li a span {
+  color: #483000;
+}
+/* line 38, ../scss/styles.scss */
+body .product-feature > span {
+  background-color: #f0f048;
+}
+/* line 41, ../scss/styles.scss */
+body #top-bar {
+  background-color: #fbfbfb;
+}

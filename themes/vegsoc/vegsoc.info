@@ -1,0 +1,30 @@
+name = Vegetarian and Vegan Society of Queensland
+description = Coworker subtheme
+core = 7.x
+base theme = coworker
+
+; System stylesheets we'd like to avoid:
+stylesheets[all][] = css/styles.css
+
+scripts[] = js/scripts.js
+
+
+regions[top_left] = Top header left
+regions[top_right] = Top header right
+
+regions[sidebar_first]  = Left sidebar
+regions[sidebar_second] = Right sidebar
+regions[slider] = Slider
+regions[contact_map] = Contact map
+regions[content] = Content
+regions[header] = Header
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[page_top] = Page Top
+regions[page_bottom] = Page Bottom
+
+regions[footer] = Footer
+regions[footer_first] = Footer first column
+regions[footer_second] = Footer second column
+regions[footer_third] = Footer third column
+regions[footer_fourth] = Footer fourth column
