@@ -30,6 +30,7 @@ projects[devel][version] = "1.3"
 projects[email][version] = "1.2"
 
 projects[entity][version] = "1.2"
+projects[entity][patch] = "https://drupal.org/files/php5.5_bitwise_operator_fix-2050775-7_0.patch"
 
 projects[features][version] = "1.0"
 
@@ -51,6 +52,8 @@ projects[mollom][version] = "2.7"
 
 projects[pathauto][version] = "1.2"
 
+projects[registration_role][version] = "7.1"
+
 projects[rules][version] = "2.3"
 
 projects[site_map][version] = "1.0"
@@ -68,6 +71,7 @@ projects[token_filter][version] = "1.1"
 projects[views][version] = "3.7"
 
 projects[views_slideshow][version] = "3.0"
+projects[views_slideshow][patch][] = "https://drupal.org/files/1872616-remove-deprecated-preg_replace-7.x-3.0.patch"
 
 projects[webform][version] = "3.19"
 

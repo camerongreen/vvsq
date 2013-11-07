@@ -1,0 +1,47 @@
+/* Light Gold */
+$llakacham: #F0F078;
+/* Medium Gold */
+$merci-beaucoup: #F0F048;
+/* Deep Gold */
+$para: #F0D800;
+/* Deep Brown */
+$bittersweet: #483000;
+/* Subdued Deep Brown */
+$dark-chocolate: #604818;
+/* Title orange */
+$sunflower-orange: #f29200;
+
+$black-text: #444;
+$top-bar-color: #FBFBFB;
+
+body {
+  #header {
+    padding: 1ex;
+  }
+  #logo {
+    max-width: 265px;
+    img {
+      height:120px;
+    }
+  }
+  #primary-menu > ul > li {
+    &:hover {
+      background-color: $llakacham;
+      a div, a span {
+        color: $black-text;
+      }
+    }
+    a div, a span {
+      color: $bittersweet;
+    }
+  }
+  .product-feature > span {
+    background-color: $merci-beaucoup;
+  }
+  #top-bar {
+    background-color: $top-bar-color;
+    //li.top-menu-em a {
+    //  background-color: $dark-chocolate;
+    //}
+  }
+}

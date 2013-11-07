@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Provides blocks for the content type section home
+ * initially the image display at the top and the list
+ * of related links at the left
+ */

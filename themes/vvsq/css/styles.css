@@ -250,7 +250,7 @@ hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
-  border: 1px solid #666666;
+  border: 1px solid #666;
   padding-bottom: -1px;
   margin: 1.5em 0;
 }
@@ -873,7 +873,7 @@ table {
 .with-wireframes .region-sidebar-second,
 .with-wireframes #footer,
 .with-wireframes .region-bottom {
-  outline: 1px solid #cccccc;
+  outline: 1px solid #ccc;
 }
 
 /**
@@ -1051,7 +1051,7 @@ table {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAD6UlEQVR42s2WX0xbVRzH3YwmC4k+GF/0ZS/S267/bmnX9nL7bwstZlnbjTDYyoC5GCbB0ZW5pdJCe6swbLFA6bpWIGuRMWVjKGP+21QW3SZBSAjGh4XEaTZTH82Cm/3ztS2xs7mw4KLRk3xyzj33/H6fe5Pz7zEA/yr/vUDukj9FH6drqTaqT8EoPs/UV+nX6TD1BlUh9AqLHlmgPKLcRHmoCOWmElK/FOKTYpS8UwLJkASiUyLI3pKhlClN0g46qj+qL/pbArlbrlO1q25JeiSgR2iYJ8ywXLSg/qP6LNl2ro8+Q4MMkKCd9K2t3q3KdQnkXXIF5aISkgEJzONm1F2qW52pDJN1MI2bUBIuAdVOJWSMTPNQgX6/vkjVpvpREpag6oMqWCYta1IzbsHh9ga0RJtzY8URMdRO9U/KSuWmNQUqh2pY3CtG+fvlqJyofMAFNrZAE+7e/RWR4X4cD9tgOGsA2U2CdtMDqwqyMyIzQ5KKqAKmcyaYxkzYd3YvjGNGFtXRPRj58DT+LOemRrFnrBLyITmUDmUyO/NYgu2d26ukHVJo3tXAMGpAs+cQmh0NeClan30uwN7TgnQ6nRd4r3thOGOAJqYB2UVC79AfZAnKHGUxQa8A2tNaNLW/jKvXv8Dyb8s4yryKA4O10A3roIvpUB+swTdz1/LJZ27PQBvT5lBH1RD4BChzlQ2wBNtc22aE/ULQgzRCl4P5BPcT93GMOYz9wb2QhCRgAq35d8u/L2PXe7tADVGgBlcQ+AXQtmlvsP/gzbJZvp8PMkJCFBYh8m0knyiVSsHe0YIGZz1+/uVOvt8z7QGvnwf+ST5EIRHIUyR4fh50rbp5lsDcYR4ReAXgBrng9q/Qfa0bfy035r7Ot2dvz4IX4IEIEAXwvDzscOw4zxJUd1YfEXlE4Aa4BQHMlwzSSBeI7iXvoTxWDqKPYCFsFaKmr+YVliB0JfS89DVpiuhlB9k/tSOZTuYFvq98yI7L0/MAsVWcGp0bfW61hbahwltxSeARsIKyWKesSKQSWIwvYkvvllwfx88pgOvhwthu/AzAxlVX8vz385tLbaVxwpcLZtEw0QDjsBGctzksiE4CimZFfHp++oWHbnbuUfdB0komMgHsRN1r0MWBsEmYODF5onY92/UTwcvBxuzXcN1ccHycVSn2FaPYWwzCQUDWKIt7z3utAJ5c74Hz+OLSomynY+cVfiM/xW3JiDyZpB3FuZrj4oCwE+Ad4qWMjPHjpTtL0mzMoxyZz9yM39Q7Y85Ok930icqm+k59TL2wm9l90dZv8y/8sPAigGf/iUN/Q4anM2zOsdLe+L+4VfwBVVjDs2rTYx0AAAAASUVORK5CYII=');
   background-position: 8px 8px;
   background-repeat: no-repeat;
-  border: 1px solid #bbee77;
+  border: 1px solid #be7;
 }
 
 /* line 212, ../sass/components/_misc.scss */
@@ -1125,14 +1125,14 @@ table {
 }
 
 /* line 275, ../sass/components/_misc.scss */
-.tabs-primary__tab, .tabs-primary__tab.is-active, .tabs-secondary__tab,
+.tabs-primary__tab, .tabs-secondary__tab,
 .tabs-secondary__tab.is-active {
   float: left;
   margin: 0 3px;
 }
 
 /* line 279, ../sass/components/_misc.scss */
-a.tabs-primary__tab-link, a.tabs-primary__tab-link.is-active, a.tabs-secondary__tab-link, a.tabs-secondary__tab-link.is-active {
+a.tabs-primary__tab-link, a.tabs-secondary__tab-link {
   border: 1px solid #e9e9e9;
   border-right: 0;
   border-bottom: 0;
@@ -1227,7 +1227,7 @@ a.tabs-secondary__tab-link, a.tabs-secondary__tab-link.is-active {
   text-shadow: 1px 1px 0 white;
   background-color: #f2f2f2;
   color: #666;
-  padding: 0 0.5em;
+  padding: 0 .5em;
 }
 
 /* line 367, ../sass/components/_misc.scss */
@@ -1456,7 +1456,7 @@ tr.odd .form-item, tr.even .form-item {
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
-  border: 1px solid #cc0000;
+  border: 1px solid #c00;
 }
 /* line 606, ../sass/components/_misc.scss */
 .form-item .description {
@@ -1542,11 +1542,11 @@ html.js #user-login-form li.openid-link,
 form th {
   text-align: left;
   padding-right: 1em;
-  border-bottom: 3px solid #cccccc;
+  border-bottom: 3px solid #ccc;
 }
 /* line 681, ../sass/components/_misc.scss */
 form tbody {
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid #ccc;
 }
 /* line 684, ../sass/components/_misc.scss */
 form table ul {
@@ -1557,7 +1557,7 @@ form table ul {
 tr.even,
 tr.odd {
   background-color: #eee;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
   padding: 0.1em 0.6em;
 }
 
@@ -1766,13 +1766,34 @@ tr.selected td {
 /* SMACSS theme rules */
 /* @import "theme-A"; */
 /* @import "theme-B"; */
-/* line 3, ../sass/_custom.scss */
+/* line 6, ../sass/_custom.scss */
+body {
+  background-color: #fafafa;
+}
+/* line 8, ../sass/_custom.scss */
+body #page {
+  max-width: none;
+}
+/* line 12, ../sass/_custom.scss */
+body #main,
+body #footer {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* line 18, ../sass/_custom.scss */
+#header {
+  position: relative;
+  padding: 0;
+}
+
+/* line 23, ../sass/_custom.scss */
 img.admin-menu-icon {
   height: 16px;
   width: 16px;
 }
 
-/* line 8, ../sass/_custom.scss */
+/* line 28, ../sass/_custom.scss */
 article div.field-name-field-image {
   width: 480px;
   float: left;
@@ -1780,117 +1801,127 @@ article div.field-name-field-image {
   margin-bottom: 2em;
 }
 
-/* line 17, ../sass/_custom.scss */
+/* line 37, ../sass/_custom.scss */
 #block-menu-menu-bottom-menu ul.menu,
 #block-menu-menu-top-menu ul.menu {
   list-style-type: none;
-  display: inline;
+  display: block;
   padding-left: 0px;
 }
-/* line 21, ../sass/_custom.scss */
+/* line 41, ../sass/_custom.scss */
 #block-menu-menu-bottom-menu ul.menu li,
 #block-menu-menu-top-menu ul.menu li {
   list-style: none;
   display: inline;
 }
-/* line 24, ../sass/_custom.scss */
+/* line 44, ../sass/_custom.scss */
 #block-menu-menu-bottom-menu ul.menu li a,
 #block-menu-menu-top-menu ul.menu li a {
   text-decoration: none;
   color: black;
+  font-weight: bold;
+  font-size: 120%;
 }
-/* line 27, ../sass/_custom.scss */
+/* line 49, ../sass/_custom.scss */
 #block-menu-menu-bottom-menu ul.menu li a:before,
 #block-menu-menu-top-menu ul.menu li a:before {
   content: "/ ";
 }
-/* line 31, ../sass/_custom.scss */
+/* line 53, ../sass/_custom.scss */
 #block-menu-menu-bottom-menu ul.menu li:first-child a:before,
 #block-menu-menu-top-menu ul.menu li:first-child a:before {
   content: "";
 }
 
-/* line 39, ../sass/_custom.scss */
-nav.breadcrumb a {
-  text-decoration: none;
-  color: black;
-}
-/* line 42, ../sass/_custom.scss */
-nav.breadcrumb a:before {
-  content: "/ ";
-}
-/* line 46, ../sass/_custom.scss */
-nav.breadcrumb:first-child a:before {
-  content: "";
-}
-
-/* line 51, ../sass/_custom.scss */
+/* line 60, ../sass/_custom.scss */
 #block-menu-menu-bottom-menu {
   text-align: center;
 }
 
-/* line 55, ../sass/_custom.scss */
-#page #header {
-  position: relative;
+/* line 64, ../sass/_custom.scss */
+#block-menu-menu-top-menu {
+  background-color: white;
+  padding: 5px;
+  padding-top: 6px;
+  box-shadow: 0px 3px 2px #c8c8c8;
+}
+/* line 69, ../sass/_custom.scss */
+#block-menu-menu-top-menu ul.menu {
+  width: 1200px;
+  margin: auto;
 }
 
-/* line 59, ../sass/_custom.scss */
+/* line 76, ../sass/_custom.scss */
+nav.breadcrumb a {
+  text-decoration: none;
+  color: black;
+}
+/* line 79, ../sass/_custom.scss */
+nav.breadcrumb a:before {
+  content: "/ ";
+}
+/* line 83, ../sass/_custom.scss */
+nav.breadcrumb:first-child a:before {
+  content: "";
+}
+
+/* line 88, ../sass/_custom.scss */
 #social-media {
   position: absolute;
   right: 0px;
   margin-top: 55px;
 }
-/* line 63, ../sass/_custom.scss */
+/* line 92, ../sass/_custom.scss */
 #social-media ul {
   list-style-type: none;
   display: inline;
   padding-left: 0px;
 }
-/* line 67, ../sass/_custom.scss */
+/* line 96, ../sass/_custom.scss */
 #social-media ul li {
   list-style: none;
   display: inline;
 }
 
-/* line 74, ../sass/_custom.scss */
+/* line 103, ../sass/_custom.scss */
 #block-search-form {
   float: right;
 }
 
-/* line 78, ../sass/_custom.scss */
+/* line 107, ../sass/_custom.scss */
 #main #navigation {
   width: 900px;
   top: -18px;
   left: 400px;
 }
-/* line 83, ../sass/_custom.scss */
+/* line 112, ../sass/_custom.scss */
 #main #navigation li a {
   text-decoration: none;
   color: black;
 }
-/* line 86, ../sass/_custom.scss */
+/* line 115, ../sass/_custom.scss */
 #main #navigation li a:before {
   content: "| ";
 }
-/* line 90, ../sass/_custom.scss */
+/* line 119, ../sass/_custom.scss */
 #main #navigation li:first-child a:before {
   content: "";
 }
 
-/* line 96, ../sass/_custom.scss */
+/* line 125, ../sass/_custom.scss */
 #block-block-2 {
   margin-bottom: 2em;
 }
-/* line 98, ../sass/_custom.scss */
+/* line 127, ../sass/_custom.scss */
 #block-block-2 div {
   width: 33.3%;
   float: left;
 }
-/* line 102, ../sass/_custom.scss */
+/* line 131, ../sass/_custom.scss */
 #block-block-2 div:nth-child(3) {
   text-align: center;
 }
-/* line 105, ../sass/_custom.scss */
+/* line 134, ../sass/_custom.scss */
 #block-block-2 div:nth-child(4) img {
   float: right;
 }

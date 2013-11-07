@@ -1,0 +1,6 @@
+name = VVSQ Misc
+description = Small functions which don't belong elsewhere
+core = 7.x
+package = VVSQ
+version = 7.x-1.0
+project = vvsq_misc
