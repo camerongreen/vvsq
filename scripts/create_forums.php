@@ -15,8 +15,8 @@ include_once("../scripts/db_details.php");
  */
 
 // Limit import settings
-define('MAX_TOPICS', 2); // only allow this many topics to be imported
-define('MAX_THREADS', 5); // only allow this many threads to be imported for each topic
+define('MAX_TOPICS', 100000); // only allow this many topics to be imported
+define('MAX_THREADS', 100000); // only allow this many threads to be imported for each topic
 define('MAX_MESSAGES', 100000); // only allow this many messages to be imported for each thread
 
 define('FORUM_VID', 2);
@@ -79,6 +79,7 @@ foreach ($topics as $topic) {
     $last_updated = NULL;
 
     foreach ($messages as $message) {
+      $last_updated = $message->created;
       if ($first) {
         $newThread->body[$newThread->language][0]['value'] = check_markup($message->Message, POST_FORMAT);
         node_save($newThread);
@@ -104,7 +105,6 @@ foreach ($topics as $topic) {
       }
       else {
         $message_account = user_load_by_name($message->Username);
-        $last_updated = $message->created;
 
         $newMessage = new stdClass();
         $newMessage->nid = $newThread->nid;
