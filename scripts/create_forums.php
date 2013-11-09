@@ -31,8 +31,8 @@ foreach ($topics as $topic) {
   $newTopic->description = $topic->description;
   $newTopic->vid = NEW_FORUM_VID;
   $newTopic->parent = 0;
-  $newTopicId =  taxonomy_term_save($newTopic);  
-  
+  $newTopicId = taxonomy_term_save($newTopic);
+
   db_set_active('import');
   $threads = db_query('SELECT *, UNIX_TIMESTAMP(date_created) AS created FROM {Thread} WHERE Topic_ID = :topic_id', array(':topic_id' => $topic->ID));
   db_set_active();
@@ -42,11 +42,12 @@ foreach ($topics as $topic) {
     $account_uid = $account ? $account->uid : 0;
 
     $newThread = new stdClass();
-    $newThread->nid = null;
+    $newThread->nid = NULL;
     $newThread->title = $thread->title ? $thread->title : "Untitled";
     $newThread->type = 'forum';
-    $newThread->language = LANGUAGE_NONE;
     node_object_prepare($newThread);
+
+    $newThread->language = LANGUAGE_NONE;
     $newThread->body[$newThread->language][0]['summary'] = text_summary($thread->description);
     $newThread->body[$newThread->language][0]['format'] = NEW_POST_FORMAT;
     $newThread->created = $thread->created; // see query
@@ -64,25 +65,40 @@ foreach ($topics as $topic) {
     db_set_active('import');
     $messages = db_query('SELECT Messages.*, userdetails.Username, UNIX_TIMESTAMP(Date_Entered) AS created FROM {Messages} JOIN {userdetails} ON User_ID = userdetails.Author_ID WHERE Thread_ID = :thread_id ORDER BY created', array(':thread_id' => $thread->Id));
     db_set_active();
-    
+
     // the first message in each Thread is the original post, so add that
-    // to the node
-    $first = true;
-  
+    // to the node rather than as a comment
+    $first = TRUE;
+    // get last comment timestamp for comment stats table
+    $last_updated = NULL;
+
     foreach ($messages as $message) {
       if ($first) {
         $newThread->body[$newThread->language][0]['value'] = check_markup($message->Message, NEW_POST_FORMAT);
         node_save($newThread);
+        // node_save forces created time to be NOW(), so update
+        // it also forces the uid to be the current user (root of this script) so update that too
         $revision_uid_updated = db_update('node_revision')
           ->fields(array(
-          'uid' => $account_uid,
-          'timestamp' => $thread->created,
-        ))
-        ->condition('nid', $newThread->nid, '=')
-        ->execute();
-        $first = false;
-      } else {
+            'uid' => $account_uid,
+            'timestamp' => $thread->created,
+          ))
+          ->condition('nid', $newThread->nid, '=')
+          ->execute();
+
+        // also fix the node dates
+        db_update('node')
+          ->fields(array(
+            'created' => $message->created ? $message->created : $thread->created,
+            'changed' => 0
+          ))
+          ->condition('nid', $newThread->nid, '=')
+          ->execute();
+        $first = FALSE;
+      }
+      else {
         $message_account = user_load_by_name($message->Username);
+        $last_updated = $message->created;
 
         $newMessage = new stdClass();
         $newMessage->nid = $newThread->nid;
@@ -90,7 +106,6 @@ foreach ($topics as $topic) {
         $newMessage->pid = 0;
         $newMessage->uid = $message_account ? $message_account->uid : 0;
         $newMessage->mail = $message_account ? $message_account->mail : '';
-        $newMessage->created = $message->created; // see query
         $newMessage->is_anonymous = 0;
         $newMessage->homepage = '';
         $newMessage->status = COMMENT_PUBLISHED;
@@ -98,10 +113,31 @@ foreach ($topics as $topic) {
         $newMessage->subject = substr('RE: ' . $thread->title, 0, 64);
         $newMessage->comment_body[$newMessage->language][0]['value'] = $message->Message;
         $newMessage->comment_body[$newMessage->language][0]['format'] = NEW_POST_FORMAT;
-    
+
         comment_submit($newMessage);
         comment_save($newMessage);
+
+        // forces created and updated times to be NOW()
+        // see SQL query for derived value
+        db_update('comment')
+          ->fields(array(
+            'created' => $message->created,
+            'hostname' => $message->IPAddress ? $message->IPAddress : '127.0.0.1',
+            'changed' => 0
+          ))
+          ->condition('cid', $newMessage->cid, '=')
+          ->execute();
       }
+    }
+
+    if ($last_updated) {
+      // Update the last comment time
+      db_update('node_comment_statistics')
+        ->fields(array(
+          'last_comment_timestamp' => $last_updated
+        ))
+        ->condition('nid', $newThread->nid, '=')
+        ->execute();
     }
     break;
   }

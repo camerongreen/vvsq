@@ -40,3 +40,7 @@ body .pricing div.pricing-wrap {
 body #top-bar {
   background-color: #fbfbfb;
 }
+/* line 50, ../scss/styles.scss */
+body #forum .forum-table {
+  width: 100%;
+}
