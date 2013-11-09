@@ -33,6 +33,10 @@ body .product-feature > span {
   background-color: #f0f048;
 }
 /* line 41, ../scss/styles.scss */
+body .pricing div.pricing-wrap {
+  width: 33%;
+}
+/* line 44, ../scss/styles.scss */
 body #top-bar {
   background-color: #fbfbfb;
 }

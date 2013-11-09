@@ -38,6 +38,9 @@ body {
   .product-feature > span {
     background-color: $merci-beaucoup;
   }
+  .pricing div.pricing-wrap {
+    width: 33%;
+  }
   #top-bar {
     background-color: $top-bar-color;
     //li.top-menu-em a {
