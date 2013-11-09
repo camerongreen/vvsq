@@ -13,13 +13,19 @@ include_once("../scripts/db_details.php");
  * Date: 08/11/13
  * Time: 12:19 PM
  */
-define('NEW_FORUM_VID', 2);
-define('NEW_POST_FORMAT', 'filtered_html');
+
+// Limit import settings
+define('MAX_TOPICS', 2); // only allow this many topics to be imported
+define('MAX_THREADS', 5); // only allow this many threads to be imported for each topic
+define('MAX_MESSAGES', 100000); // only allow this many messages to be imported for each thread
+
+define('FORUM_VID', 2);
+define('POST_FORMAT', 'filtered_html');
 
 Database::addConnectionInfo('import', 'default', $old_database);
 db_set_active('import');
 
-$result = db_query('SELECT * FROM {topic} tp WHERE tp.enabled = :active', array(':active' => 1));
+$result = db_query('SELECT * FROM {topic} tp WHERE tp.enabled = :active LIMIT ' . MAX_TOPICS, array(':active' => 1));
 $topics = $result->fetchAllAssoc('ID');
 
 db_set_active();
@@ -29,12 +35,12 @@ foreach ($topics as $topic) {
   $newTopic = new stdClass();
   $newTopic->name = $topic->title;
   $newTopic->description = $topic->description;
-  $newTopic->vid = NEW_FORUM_VID;
+  $newTopic->vid = FORUM_VID;
   $newTopic->parent = 0;
-  $newTopicId = taxonomy_term_save($newTopic);
+  taxonomy_term_save($newTopic);
 
   db_set_active('import');
-  $threads = db_query('SELECT *, UNIX_TIMESTAMP(date_created) AS created FROM {Thread} WHERE Topic_ID = :topic_id', array(':topic_id' => $topic->ID));
+  $threads = db_query('SELECT *, UNIX_TIMESTAMP(date_created) AS created FROM {Thread} WHERE Topic_ID = :topic_id AND date_created IS NOT NULL LIMIT ' . MAX_THREADS, array(':topic_id' => $topic->ID));
   db_set_active();
 
   foreach ($threads as $thread) {
@@ -49,21 +55,21 @@ foreach ($topics as $topic) {
 
     $newThread->language = LANGUAGE_NONE;
     $newThread->body[$newThread->language][0]['summary'] = text_summary($thread->description);
-    $newThread->body[$newThread->language][0]['format'] = NEW_POST_FORMAT;
+    $newThread->body[$newThread->language][0]['format'] = POST_FORMAT;
     $newThread->created = $thread->created; // see query
     $newThread->revision_timestamp = $thread->created;
     $newThread->uid = $account_uid;
     $newThread->status = 1;
     $newThread->promote = 0;
     $newThread->sticky = 0;
-    $newThread->format = NEW_POST_FORMAT;
+    $newThread->format = POST_FORMAT;
 
-    $newThread->taxonomy_forums["und"][0]['tid'] = NEW_FORUM_VID;
-    $newThread->taxonomy_forums["und"][1]['tid'] = $newTopicId;
+    //$newThread->taxonomy_forums[$newThread->language][0]['tid'] = FORUM_VID;
+    $newThread->taxonomy_forums[$newThread->language][0]['tid'] = $newTopic->tid;
     $newThread->comments = $thread->locked == 1 ? 1 : 2;
 
     db_set_active('import');
-    $messages = db_query('SELECT Messages.*, userdetails.Username, UNIX_TIMESTAMP(Date_Entered) AS created FROM {Messages} JOIN {userdetails} ON User_ID = userdetails.Author_ID WHERE Thread_ID = :thread_id ORDER BY created', array(':thread_id' => $thread->Id));
+    $messages = db_query('SELECT Messages.*, userdetails.Username, UNIX_TIMESTAMP(Date_Entered) AS created FROM {Messages} JOIN {userdetails} ON User_ID = userdetails.Author_ID WHERE Thread_ID = :thread_id ORDER BY created LIMIT ' . MAX_MESSAGES, array(':thread_id' => $thread->Id));
     db_set_active();
 
     // the first message in each Thread is the original post, so add that
@@ -74,7 +80,7 @@ foreach ($topics as $topic) {
 
     foreach ($messages as $message) {
       if ($first) {
-        $newThread->body[$newThread->language][0]['value'] = check_markup($message->Message, NEW_POST_FORMAT);
+        $newThread->body[$newThread->language][0]['value'] = check_markup($message->Message, POST_FORMAT);
         node_save($newThread);
         // node_save forces created time to be NOW(), so update
         // it also forces the uid to be the current user (root of this script) so update that too
@@ -112,7 +118,7 @@ foreach ($topics as $topic) {
         $newMessage->language = LANGUAGE_NONE;
         $newMessage->subject = substr('RE: ' . $thread->title, 0, 64);
         $newMessage->comment_body[$newMessage->language][0]['value'] = $message->Message;
-        $newMessage->comment_body[$newMessage->language][0]['format'] = NEW_POST_FORMAT;
+        $newMessage->comment_body[$newMessage->language][0]['format'] = POST_FORMAT;
 
         comment_submit($newMessage);
         comment_save($newMessage);
@@ -131,7 +137,7 @@ foreach ($topics as $topic) {
     }
 
     if ($last_updated) {
-      // Update the last comment time
+      // Update the last comment time in stats
       db_update('node_comment_statistics')
         ->fields(array(
           'last_comment_timestamp' => $last_updated
@@ -139,8 +145,6 @@ foreach ($topics as $topic) {
         ->condition('nid', $newThread->nid, '=')
         ->execute();
     }
-    break;
   }
-  break;
 }
 
