@@ -49,5 +49,13 @@ body {
   }
   #forum .forum-table {
     width: 100%;
+    td {
+      padding: 1ex;
+    }
+  }
+  #forum-comments {
+    .forum-post-panel-main {
+      min-height: 100px;
+    }
   }
 }

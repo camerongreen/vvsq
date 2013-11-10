@@ -4,7 +4,7 @@
 include_once("../scripts/db_details.php");
 
 /**
- * A script to popuplate the Drupal Forums with entries from the old forums
+ * A script to populate the Drupal Forums with entries from the old forums
  *
  * You will need to run like this :
  *  APPLICATION_ENV="development" drush php-script create_forums.php
@@ -64,7 +64,6 @@ foreach ($topics as $topic) {
     $newThread->sticky = 0;
     $newThread->format = POST_FORMAT;
 
-    //$newThread->taxonomy_forums[$newThread->language][0]['tid'] = FORUM_VID;
     $newThread->taxonomy_forums[$newThread->language][0]['tid'] = $newTopic->tid;
     $newThread->comments = $thread->locked == 1 ? 1 : 2;
 
@@ -123,7 +122,8 @@ foreach ($topics as $topic) {
         comment_submit($newMessage);
         comment_save($newMessage);
 
-        // forces created and updated times to be NOW()
+        // Drupal forces created and updated times to be NOW() no matter what you pass in
+        // so override that with the time of the post
         // see SQL query for derived value
         db_update('comment')
           ->fields(array(

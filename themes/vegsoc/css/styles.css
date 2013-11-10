@@ -44,3 +44,11 @@ body #top-bar {
 body #forum .forum-table {
   width: 100%;
 }
+/* line 52, ../scss/styles.scss */
+body #forum .forum-table td {
+  padding: 1ex;
+}
+/* line 57, ../scss/styles.scss */
+body #forum-comments .forum-post-panel-main {
+  min-height: 100px;
+}
