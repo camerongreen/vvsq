@@ -15,7 +15,7 @@ include_once("../scripts/db_details.php");
  * Time: sunset :)
  */
 
-define('RESOURCES_VID', 2);
+define('RESOURCES_VID', 5);
 define('RESOURCE_OWNER', 'Dark Horse');
 define('RESOURCE_NODE_TYPE', 'Dark Horse');
 define('RESOURCE_POST_FORMAT', 'filtered_html');

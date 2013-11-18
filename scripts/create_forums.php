@@ -15,17 +15,21 @@ include_once("../scripts/db_details.php");
  */
 
 // Limit import settings
-define('MAX_TOPICS', 100000); // only allow this many topics to be imported
-define('MAX_THREADS', 100000); // only allow this many threads to be imported for each topic
-define('MAX_MESSAGES', 100000); // only allow this many messages to be imported for each thread
+define('FORUM_MAX_TOPICS', 3); // only allow this many topics to be imported
+define('FORUM_MAX_THREADS', 3); // only allow this many threads to be imported for each topic
+define('FORUM_MAX_MESSAGES', 3); // only allow this many messages to be imported for each thread
 
 define('FORUM_VID', 2);
-define('POST_FORMAT', 'filtered_html');
+define('FORUM_LOG_LINE_MAX_LENGTH', 80);
+define('FORUM_POST_FORMAT', 'filtered_html');
+define('FORUM_LOG_FILE', '/tmp/forum_import.log');
+
+open_log_file();
 
 Database::addConnectionInfo('import', 'default', $old_database);
 db_set_active('import');
 
-$result = db_query('SELECT * FROM {topic} tp WHERE tp.enabled = :active LIMIT ' . MAX_TOPICS, array(':active' => 1));
+$result = db_query('SELECT * FROM {topic} tp WHERE tp.enabled = :active LIMIT ' . FORUM_MAX_TOPICS, array(':active' => 1));
 $topics = $result->fetchAllAssoc('ID');
 
 db_set_active();
@@ -39,36 +43,41 @@ foreach ($topics as $topic) {
   $newTopic->parent = 0;
   taxonomy_term_save($newTopic);
 
+  flog("Topic", $topic->title);
+
   db_set_active('import');
-  $threads = db_query('SELECT *, UNIX_TIMESTAMP(date_created) AS created FROM {Thread} WHERE Topic_ID = :topic_id AND date_created IS NOT NULL LIMIT ' . MAX_THREADS, array(':topic_id' => $topic->ID));
+  $threads = db_query('SELECT *, UNIX_TIMESTAMP(date_created) AS created FROM {Thread} WHERE Topic_ID = :topic_id AND date_created IS NOT NULL ORDER BY created LIMIT ' . FORUM_MAX_THREADS, array(':topic_id' => $topic->ID));
   db_set_active();
 
   foreach ($threads as $thread) {
+    $title = $thread->title ? $thread->title : "Untitled";
+    flog("Thread", $title);
+
     $account = user_load_by_name($thread->started_by);
     $account_uid = $account ? $account->uid : 0;
 
     $newThread = new stdClass();
     $newThread->nid = NULL;
-    $newThread->title = $thread->title ? $thread->title : "Untitled";
+    $newThread->title = $title;
     $newThread->type = 'forum';
     node_object_prepare($newThread);
 
     $newThread->language = LANGUAGE_NONE;
     $newThread->body[$newThread->language][0]['summary'] = text_summary($thread->description);
-    $newThread->body[$newThread->language][0]['format'] = POST_FORMAT;
+    $newThread->body[$newThread->language][0]['format'] = FORUM_POST_FORMAT;
     $newThread->created = $thread->created; // see query
     $newThread->revision_timestamp = $thread->created;
     $newThread->uid = $account_uid;
     $newThread->status = 1;
     $newThread->promote = 0;
     $newThread->sticky = 0;
-    $newThread->format = POST_FORMAT;
+    $newThread->format = FORUM_POST_FORMAT;
 
     $newThread->taxonomy_forums[$newThread->language][0]['tid'] = $newTopic->tid;
     $newThread->comments = $thread->locked == 1 ? 1 : 2;
 
     db_set_active('import');
-    $messages = db_query('SELECT Messages.*, userdetails.Username, UNIX_TIMESTAMP(Date_Entered) AS created FROM {Messages} JOIN {userdetails} ON User_ID = userdetails.Author_ID WHERE Thread_ID = :thread_id ORDER BY created LIMIT ' . MAX_MESSAGES, array(':thread_id' => $thread->Id));
+    $messages = db_query('SELECT Messages.*, userdetails.Username, UNIX_TIMESTAMP(Date_Entered) AS created FROM {Messages} JOIN {userdetails} ON User_ID = userdetails.Author_ID WHERE Thread_ID = :thread_id ORDER BY created LIMIT ' . FORUM_MAX_MESSAGES, array(':thread_id' => $thread->Id));
     db_set_active();
 
     // the first message in each Thread is the original post, so add that
@@ -80,7 +89,8 @@ foreach ($topics as $topic) {
     foreach ($messages as $message) {
       $last_updated = $message->created;
       if ($first) {
-        $newThread->body[$newThread->language][0]['value'] = check_markup($message->Message, POST_FORMAT);
+        flog("Adding content to thread node", $message->Message);
+        $newThread->body[$newThread->language][0]['value'] = check_markup($message->Message, FORUM_POST_FORMAT);
         node_save($newThread);
         // node_save forces created time to be NOW(), so update
         // it also forces the uid to be the current user (root of this script) so update that too
@@ -105,6 +115,7 @@ foreach ($topics as $topic) {
       else {
         $message_account = user_load_by_name($message->Username);
 
+        flog("Saving message", $message->Message);
         $newMessage = new stdClass();
         $newMessage->nid = $newThread->nid;
         $newMessage->cid = 0;
@@ -117,7 +128,7 @@ foreach ($topics as $topic) {
         $newMessage->language = LANGUAGE_NONE;
         $newMessage->subject = substr('RE: ' . $thread->title, 0, 64);
         $newMessage->comment_body[$newMessage->language][0]['value'] = $message->Message;
-        $newMessage->comment_body[$newMessage->language][0]['format'] = POST_FORMAT;
+        $newMessage->comment_body[$newMessage->language][0]['format'] = FORUM_POST_FORMAT;
 
         comment_submit($newMessage);
         comment_save($newMessage);
@@ -146,5 +157,24 @@ foreach ($topics as $topic) {
         ->execute();
     }
   }
+}
+
+fclose($GLOBALS["log_file"]);
+
+function flog($message, $value="") {
+  if ($value) {
+    $value = "\t:" . substr(strip_tags(str_replace("\n", "", $value)), 0, FORUM_LOG_LINE_MAX_LENGTH);
+  }
+  fwrite($GLOBALS["log_file"], $message . $value . "\n");
+}
+
+function open_log_file() {
+  $log_file = fopen(FORUM_LOG_FILE, "w");
+
+  if (!$log_file) {
+    die("Could not open " . FORUM_LOG_FILE);
+  }
+
+  $GLOBALS["log_file"] = $log_file;
 }
 
