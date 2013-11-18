@@ -40,15 +40,36 @@ body .pricing div.pricing-wrap {
 body #top-bar {
   background-color: #fbfbfb;
 }
-/* line 50, ../scss/styles.scss */
+/* line 51, ../scss/styles.scss */
 body #forum .forum-table {
   width: 100%;
 }
-/* line 52, ../scss/styles.scss */
+/* line 53, ../scss/styles.scss */
 body #forum .forum-table td {
   padding: 1ex;
 }
 /* line 57, ../scss/styles.scss */
+body #forum div.forum-pager ul.pager {
+  padding-top: 0;
+  margin-top: 0;
+}
+/* line 63, ../scss/styles.scss */
 body #forum-comments .forum-post-panel-main {
   min-height: 100px;
+}
+/* line 68, ../scss/styles.scss */
+body.node-type-forum div.content-wrap, body.page-forum div.content-wrap {
+  padding-top: 20px;
+}
+/* line 71, ../scss/styles.scss */
+body div.forum-node-create-links {
+  padding-top: 0;
+}
+/* line 74, ../scss/styles.scss */
+body #advanced-forum-forum-topic-list-sort-form {
+  display: none;
+}
+/* line 77, ../scss/styles.scss */
+body div.forum-topic-legend div {
+  clear: none;
 }

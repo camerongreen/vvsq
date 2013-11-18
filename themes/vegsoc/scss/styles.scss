@@ -21,7 +21,7 @@ body {
   #logo {
     max-width: 265px;
     img {
-      height:120px;
+      height: 120px;
     }
   }
   #primary-menu > ul > li {
@@ -47,15 +47,34 @@ body {
     //  background-color: $dark-chocolate;
     //}
   }
-  #forum .forum-table {
-    width: 100%;
-    td {
-      padding: 1ex;
+  #forum {
+    .forum-table {
+      width: 100%;
+      td {
+        padding: 1ex;
+      }
+    }
+    div.forum-pager ul.pager {
+      padding-top: 0;
+      margin-top: 0;
     }
   }
   #forum-comments {
     .forum-post-panel-main {
       min-height: 100px;
     }
+  }
+  &.node-type-forum div.content-wrap,
+  &.page-forum div.content-wrap {
+    padding-top: 20px;
+  }
+  div.forum-node-create-links {
+    padding-top: 0;
+  }
+  #advanced-forum-forum-topic-list-sort-form {
+    display: none;
+  }
+  div.forum-topic-legend div {
+    clear: none;
   }
 }
