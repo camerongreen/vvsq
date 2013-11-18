@@ -15,23 +15,33 @@ include_once("../scripts/db_details.php");
  * Time: sunset :)
  */
 
-define('RESOURCES_VID', 5);
+define('RESOURCES_VOCABULARY_NAME', "Resources");
+define('RESOURCES_VOCABULARY_MACHINE_NAME', "resources");
 define('RESOURCE_OWNER', 'Dark Horse');
-define('RESOURCE_NODE_TYPE', 'Dark Horse');
+define('RESOURCE_NODE_TYPE', 'resource');
 define('RESOURCE_POST_FORMAT', 'filtered_html');
 
 Database::addConnectionInfo('import', 'default', $old_database);
 db_set_active('import');
 
-$result = db_query('SELECT *, UNIX_TIMESTAMP(Resource_Add_Date) AS created FROM {Resources}');
+$resources = db_query('SELECT *, UNIX_TIMESTAMP(Resource_Add_Date) AS created FROM {Resources}');
 
 db_set_active();
+
+$newVocab = taxonomy_vocabulary_machine_name_load(RESOURCES_VOCABULARY_MACHINE_NAME);
+
+if (!$newVocab) {
+  $newVocab = new stdClass();
+  $newVocab->name = RESOURCES_VOCABULARY_NAME;
+  $newVocab->machine_name = RESOURCES_VOCABULARY_MACHINE_NAME;
+  taxonomy_vocabulary_save($newVocab);
+}
 
 $account = user_load_by_name(RESOURCE_OWNER);
 $account_uid = $account ? $account->uid : 0;
 
-foreach ($result as $resource) {
-  $terms = taxonomy_get_term_by_name($resource->resource_type, RESOURCES_VID);
+foreach ($resources as $resource) {
+  $terms = taxonomy_get_term_by_name($resource->resource_type, RESOURCES_VOCABULARY_MACHINE_NAME);
 
   if ($terms) {
     $term = $terms[0];
@@ -39,14 +49,14 @@ foreach ($result as $resource) {
   else {
     $term = new stdClass();
     $term->name = $resource->resource_type;
-    $term->vid = RESOURCES_VID;
+    $term->vid = $newVocab->vid;
     $term->parent = 0;
     taxonomy_term_save($term);
   }
 
   $newResource = new stdClass();
   $newResource->nid = NULL;
-  $newResource->title = $resource->Resouce_title;
+  $newResource->title = $resource->Resouce_Title;
   $newResource->type = RESOURCE_NODE_TYPE;
   node_object_prepare($newResource);
 
@@ -60,15 +70,16 @@ foreach ($result as $resource) {
   $newResource->promote = 0;
   $newResource->sticky = 0;
   $newResource->format = RESOURCE_POST_FORMAT;
-  $newResource->taxonomy_forums[$newResource->language][0]['tid'] = $term->tid;
-  $newResource->body[$newResource->language][0]['value'] = check_markup($message->Resource_Description, RESOURCE_POST_FORMAT);
+  $newResource->taxonomy[$newResource->language][0]['tid'] = $term->tid;
+  $newResource->body[$newResource->language][0]['value'] = check_markup($resource->Resource_Description, RESOURCE_POST_FORMAT);
   node_save($newResource);
+
   // node_save forces created time to be NOW(), so update
   // it also forces the uid to be the current user (root of this script) so update that too
   $revision_uid_updated = db_update('node_revision')
     ->fields(array(
       'uid' => $account_uid,
-      'timestamp' => $resource->created,
+      'timestamp' => $resource->created ? $resource->created : time(),
     ))
     ->condition('nid', $newResource->nid, '=')
     ->execute();
@@ -76,7 +87,7 @@ foreach ($result as $resource) {
   // also fix the node dates
   db_update('node')
     ->fields(array(
-      'created' => $message->created ? $message->created : $resource->created,
+      'created' => $resource->created ? $resource->created : time(),
       'changed' => 0
     ))
     ->condition('nid', $newResource->nid, '=')

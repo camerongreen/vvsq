@@ -15,9 +15,9 @@ include_once("../scripts/db_details.php");
  */
 
 // Limit import settings
-define('FORUM_MAX_TOPICS', 3); // only allow this many topics to be imported
-define('FORUM_MAX_THREADS', 3); // only allow this many threads to be imported for each topic
-define('FORUM_MAX_MESSAGES', 3); // only allow this many messages to be imported for each thread
+define('FORUM_MAX_TOPICS', 9999999); // only allow this many topics to be imported
+define('FORUM_MAX_THREADS', 9999999); // only allow this many threads to be imported for each topic
+define('FORUM_MAX_MESSAGES', 9999999); // only allow this many messages to be imported for each thread
 
 define('FORUM_VID', 2);
 define('FORUM_LOG_LINE_MAX_LENGTH', 80);
