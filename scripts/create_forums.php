@@ -22,7 +22,7 @@ define('FORUM_MAX_MESSAGES', 9999999); // only allow this many messages to be im
 define('FORUM_VID', 2);
 define('FORUM_LOG_LINE_MAX_LENGTH', 80);
 define('FORUM_POST_FORMAT', 'filtered_html');
-define('FORUM_LOG_FILE', '/tmp/forum_import.log');
+define('FORUM_LOG_FILE', '/tmp/create_forums.log');
 
 open_log_file();
 

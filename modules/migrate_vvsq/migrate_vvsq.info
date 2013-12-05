@@ -1,0 +1,12 @@
+name = "Migrate VVSQ"
+description = "Module to VVSQ content from old site to new"
+package = "Migration"
+core = 7.x
+dependencies[] = migrate
+#  include the files that contain your Migrate classes
+files[] = migrate_vvsq.migrate.inc
+files[] = product.inc
+#files[] = user.inc
+#files[] = forum.inc
+#files[] = gallery.inc
+#files[] = roles.inc
