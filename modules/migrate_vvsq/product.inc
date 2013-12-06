@@ -1,6 +1,7 @@
 <?php
 
 class VvsqProductsMigration extends Migration {
+  const default_uid = 38; // Dark Horse
   public function __construct() {
     parent::__construct();
 
@@ -30,7 +31,9 @@ class VvsqProductsMigration extends Migration {
     $this->addFieldMapping('title', 'Resouce_Title');
     $this->addFieldMapping('body', 'Resource_Description');
     $this->addFieldMapping('created', 'Resource_Add_Date')->callbacks(array($this, 'convertToTimestamp'));
-    $this->addFieldMapping('Catalog', 'resource_type')->arguments(array("source_type" => "tid"));
+    $this->addFieldMapping('updated', 'Resource_Add_Date')->callbacks(array($this, 'convertToTimestamp'));
+    $this->addFieldMapping('taxonomy_catalog', 'resource_type');
+    $this->addFieldMapping('uid')->defaultValue(self::default_uid);
   }
 
   protected function convertToTimestamp($str) {

@@ -14,6 +14,10 @@ function migrate_vvsq_migrate_api() {
         'class_name' => 'VvsqProductsMigration',
         'group_name' => 'vvsq',
       ),
+      'VvsqProductTypes' => array(
+        'class_name' => 'VvsqProductTypesMigration',
+        'group_name' => 'vvsq',
+      ),
     ),
   );
 }
