@@ -7,3 +7,4 @@ dependencies[] = migrate
 files[] = migrate_vvsq.migrate.inc
 files[] = product.inc
 files[] = product_types.inc
+files[] = restaurant.inc

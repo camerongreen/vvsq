@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the vvsq_restaurant feature.
+ */
+
+include_once 'vvsq_restaurant.features.inc';
