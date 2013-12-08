@@ -14,12 +14,12 @@ function migrate_vvsq_migrate_api() {
         'class_name' => 'VvsqProductsMigration',
         'group_name' => 'vvsq',
       ),
-      'VvsqRestaurants' => array(
-        'class_name' => 'VvsqRestaurantsMigration',
-        'group_name' => 'vvsq',
-      ),
       'VvsqProductTypes' => array(
         'class_name' => 'VvsqProductTypesMigration',
+        'group_name' => 'vvsq',
+      ),
+      'VvsqRestaurants' => array(
+        'class_name' => 'VvsqRestaurantsMigration',
         'group_name' => 'vvsq',
       ),
     ),
