@@ -5,79 +5,85 @@ api = 2
 projects[drupal][version] = "7.x"
 
 ; Modules
-projects[addtoany][version] = "4.4"
+projects[addtoany][version] = "4"
 
-projects[admin_menu][version] = "3.0-rc4"
+projects[admin_menu][version] = "3"
 
-projects[advanced_help][version] = "1.0"
+projects[advanced_help][version] = "1"
 
-projects[advanced_forum][version] = "2.3"
+projects[advanced_forum][version] = "2"
 
-projects[captcha][version] = "1.0"
+projects[captcha][version] = "1"
 
-projects[ctools][version] = "1.3"
+projects[ctools][version] = "1"
 
-projects[ckeditor][version] = "1.13"
+projects[ckeditor][version] = "1"
 
-projects[colorbox][version] = "2.4"
+projects[ckeditor_link][version] = "2"
 
-projects[context][version] = "3.0-beta7"
+projects[colorbox][version] = "2"
 
-projects[date][version] = "2.6"
+projects[context][version] = "3"
 
-projects[devel][version] = "1.3"
+projects[date][version] = "2"
 
-projects[email][version] = "1.2"
+projects[devel][version] = "1"
 
-projects[entity][version] = "1.2"
+projects[email][version] = "1"
+
+projects[entity][version] = "1"
 projects[entity][patch] = "https://drupal.org/files/php5.5_bitwise_operator_fix-2050775-7_0.patch"
 
-projects[features][version] = "1.0"
+projects[features][version] = "1"
 
-projects[imageapi][version] = "1.x-dev"
+projects[fivestar][version] = "2"
 
-projects[imce][version] = "1.7"
+projects[imageapi][version] = "1"
 
-projects[jquery_plugin][version] = "1.0"
+projects[imce][version] = "1"
 
-projects[jquery_update][version] = "2.3"
+projects[jquery_plugin][version] = "1"
 
-projects[libraries][version] = "2.1"
+projects[jquery_update][version] = "2"
 
-projects[metatag][version] = "1.0-beta7"
+projects[libraries][version] = "2"
 
-projects[module_filter][version] = "1.8"
+projects[metatag][version] = "1"
 
-projects[mollom][version] = "2.7"
+projects[module_filter][version] = "1"
 
-projects[pathauto][version] = "1.2"
+projects[mollom][version] = "2"
 
-projects[registration_role][version] = "7.1"
+projects[pathauto][version] = "1"
 
-projects[rules][version] = "2.3"
+projects[registration_role][version] = "7"
 
-projects[site_map][version] = "1.0"
+projects[rules][version] = "2"
 
-projects[stage_file_proxy][version] = "1.4"
+projects[site_map][version] = "1"
 
-projects[strongarm][version] = "2.0"
+projects[stage_file_proxy][version] = "1"
 
-projects[ubercart][version] = "3.5"
+projects[strongarm][version] = "2"
 
-projects[token][version] = "1.5"
+projects[ubercart][version] = "3"
 
-projects[token_filter][version] = "1.1"
+projects[token][version] = "1"
 
-projects[views][version] = "3.7"
+projects[token_filter][version] = "1"
 
-projects[views_slideshow][version] = "3.0"
+projects[views][version] = "3"
+
+projects[views_slideshow][version] = "3"
 projects[views_slideshow][patch][] = "https://drupal.org/files/1872616-remove-deprecated-preg_replace-7.x-3.0.patch"
 
-projects[webform][version] = "3.19"
+projects[votingapi][version] = "2"
 
-projects[workbench][version] = "1.2"
+projects[webform][version] = "3"
 
-projects[xmlsitemap][version] = "2.0-rc2"
+projects[workbench][version] = "1"
+
+projects[xmlsitemap][version] = "2"
 
 ; Themes
 projects[zen][version] = "5.4"

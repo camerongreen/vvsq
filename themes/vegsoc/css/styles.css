@@ -73,3 +73,7 @@ body #advanced-forum-forum-topic-list-sort-form {
 body div.forum-topic-legend div {
   clear: none;
 }
+/* line 80, ../scss/styles.scss */
+body #content .region-content ul {
+  list-style: disc;
+}

@@ -116,7 +116,7 @@ wget -O ${PUBLIC_DIR}/sites/all/libraries/jquery.cycle/jquery.cycle.all.min.js h
 
 pushd $PUBLIC_DIR
 drush -y pm-disable toolbar
-drush -y pm-enable admin admin_menu advanced_forum advanced_help captcha ckeditor contact ctools date devel email features forum googleanalytics imageapi imce advanced_help imce_wysiwyg jquery_plugin jquery_update libraries module_filter mollom pathauto registration_role site_map strongarm token uc_attribute uc_cart uc_catalog uc_order uc_payment uc_paypal uc_product uc_store views views_slideshow views_slideshow_cycle views_ui webform wysiwyg xmlsitemap xmlsitemap_engines xmlsitemap_menu xmlsitemap_node xmlsitemap_taxonomy zen
+drush -y pm-enable admin admin_menu advanced_forum advanced_help captcha ckeditor ckeditor_link contact ctools date date_views devel email features fivestar forum googleanalytics imageapi imce advanced_help imce_wysiwyg jquery_plugin jquery_update libraries module_filter mollom pathauto registration_role site_map strongarm token uc_attribute uc_cart uc_catalog uc_order uc_payment uc_paypal uc_product uc_store views views_slideshow views_slideshow_cycle views_ui votingapi webform wysiwyg xmlsitemap xmlsitemap_engines xmlsitemap_menu xmlsitemap_node xmlsitemap_taxonomy zen
 
 # setup vegsoc theme
 drush -y pm-enable vegsoc
