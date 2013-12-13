@@ -29,12 +29,12 @@ open_log_file();
 Database::addConnectionInfo('import', 'default', $old_database);
 db_set_active('import');
 
+// only a few of these, so we'll pull into array
 $result = db_query('SELECT * FROM {topic} tp WHERE tp.enabled = :active LIMIT ' . FORUM_MAX_TOPICS, array(':active' => 1));
 $topics = $result->fetchAllAssoc('ID');
 
 db_set_active();
 
-// Result is returned as a iterable object that returns a stdClass object on each iteration
 foreach ($topics as $topic) {
   $newTopic = new stdClass();
   $newTopic->name = $topic->title;

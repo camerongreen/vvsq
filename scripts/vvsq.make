@@ -85,9 +85,6 @@ projects[workbench][version] = "1"
 
 projects[xmlsitemap][version] = "2"
 
-; Themes
-projects[zen][version] = "5.4"
-
 
 ; Libraries
 ; ---------
