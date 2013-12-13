@@ -80,4 +80,13 @@ body {
   #content .region-content ul {
     list-style: disc;
   }
+  .view-uc-catalog,
+  .view-uc-catalog-terms {
+    table {
+      width: 100%;
+      td {
+        width: 33.3%;
+      }
+    }
+  }
 }
