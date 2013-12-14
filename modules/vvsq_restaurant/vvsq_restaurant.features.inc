@@ -15,6 +15,13 @@ function vvsq_restaurant_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function vvsq_restaurant_views_api() {
+  return array("version" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function vvsq_restaurant_node_info() {

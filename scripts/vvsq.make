@@ -25,6 +25,8 @@ projects[colorbox][version] = "2"
 
 projects[context][version] = "3"
 
+projects[custom_breadcrumbs][version] = "2"
+
 projects[date][version] = "2"
 
 projects[devel][version] = "1"
