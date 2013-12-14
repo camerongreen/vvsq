@@ -15,10 +15,10 @@ function vvsq_menus_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'catalog',
     'router_path' => 'catalog',
-    'link_title' => 'Books & DVDs',
+    'link_title' => 'Shop Online',
     'options' => array(
       'attributes' => array(
-        'title' => 'Shop Online',
+        'title' => 'Books, Dvds',
       ),
     ),
     'module' => 'menu',
@@ -36,7 +36,7 @@ function vvsq_menus_menu_default_menu_links() {
     'link_title' => 'Events',
     'options' => array(
       'attributes' => array(
-        'title' => 'Meet new people',
+        'title' => 'Come along',
       ),
     ),
     'module' => 'menu',
@@ -203,7 +203,6 @@ function vvsq_menus_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('About');
-  t('Books & DVDs');
   t('Contact');
   t('Donate');
   t('Events');
@@ -213,6 +212,7 @@ function vvsq_menus_menu_default_menu_links() {
   t('Nutrition');
   t('Portfolio');
   t('Queensland');
+  t('Shop Online');
 
 
   return $menu_links;
