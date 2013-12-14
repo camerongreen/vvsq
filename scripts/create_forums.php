@@ -58,7 +58,7 @@ foreach ($topics as $topic) {
 
     $newThread = new stdClass();
     $newThread->nid = NULL;
-    $newThread->title = $title;
+    $newThread->title = substr(preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $title), 0, 255);
     $newThread->type = 'forum';
     node_object_prepare($newThread);
 
@@ -118,16 +118,16 @@ foreach ($topics as $topic) {
         flog("Saving message", $message->Message);
         $newMessage = new stdClass();
         $newMessage->nid = $newThread->nid;
-        $newMessage->cid = 0;
-        $newMessage->pid = 0;
+        //$newMessage->cid = 0;
+        //$newMessage->pid = 0;
         $newMessage->uid = $message_account ? $message_account->uid : 0;
         $newMessage->mail = $message_account ? $message_account->mail : '';
         $newMessage->is_anonymous = 0;
-        $newMessage->homepage = '';
+        //$newMessage->homepage = '';
         $newMessage->status = COMMENT_PUBLISHED;
         $newMessage->language = LANGUAGE_NONE;
-        $newMessage->subject = substr('RE: ' . $thread->title, 0, 64);
-        $newMessage->comment_body[$newMessage->language][0]['value'] = $message->Message;
+        $newMessage->subject = substr('RE: ' . preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $thread->title), 0, 64);
+        $newMessage->comment_body[$newMessage->language][0]['value'] = check_plain($message->Message);
         $newMessage->comment_body[$newMessage->language][0]['format'] = FORUM_POST_FORMAT;
 
         comment_submit($newMessage);
