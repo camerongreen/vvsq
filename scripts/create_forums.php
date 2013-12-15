@@ -30,7 +30,8 @@ Database::addConnectionInfo('import', 'default', $old_database);
 db_set_active('import');
 
 // only a few of these, so we'll pull into array
-$result = db_query('SELECT * FROM {topic} tp WHERE tp.enabled = :active LIMIT ' . FORUM_MAX_TOPICS, array(':active' => 1));
+$result = db_query('SELECT * FROM {topic} WHERE enabled = :active LIMIT ' . FORUM_MAX_TOPICS, array(':active' => 1));
+//$result = db_query('SELECT * FROM {topic} WHERE title = :title', array(':title' => "Veggie Speak"));
 $topics = $result->fetchAllAssoc('ID');
 
 db_set_active();
@@ -47,6 +48,7 @@ foreach ($topics as $topic) {
 
   db_set_active('import');
   $threads = db_query('SELECT *, UNIX_TIMESTAMP(date_created) AS created FROM {Thread} WHERE Topic_ID = :topic_id AND date_created IS NOT NULL ORDER BY created LIMIT ' . FORUM_MAX_THREADS, array(':topic_id' => $topic->ID));
+  //$threads = db_query('SELECT *, UNIX_TIMESTAMP(date_created) AS created FROM {Thread} WHERE Topic_ID = :topic_id AND date_created IS NOT NULL AND title = :title ORDER BY created LIMIT ' . FORUM_MAX_THREADS, array(':topic_id' => $topic->ID, ':title' => 'Answer machine messages'));
   db_set_active();
 
   foreach ($threads as $thread) {
@@ -127,7 +129,7 @@ foreach ($topics as $topic) {
         $newMessage->status = COMMENT_PUBLISHED;
         $newMessage->language = LANGUAGE_NONE;
         $newMessage->subject = substr('RE: ' . preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $thread->title), 0, 64);
-        $newMessage->comment_body[$newMessage->language][0]['value'] = check_plain($message->Message);
+        $newMessage->comment_body[$newMessage->language][0]['value'] = check_markup($message->Message, FORUM_POST_FORMAT);
         $newMessage->comment_body[$newMessage->language][0]['format'] = FORUM_POST_FORMAT;
 
         comment_submit($newMessage);
