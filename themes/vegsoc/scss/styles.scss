@@ -80,12 +80,16 @@ body {
   #content .region-content ul {
     list-style: disc;
   }
+  #uc-cart-view-form td {
+    padding: 1ex;
+  }
   .view-uc-catalog,
   .view-uc-catalog-terms {
     table {
       width: 100%;
       td {
-        width: 33.3%;
+        width: 30%;
+        padding-right: 1em;
       }
     }
   }

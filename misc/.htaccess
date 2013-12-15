@@ -2,6 +2,8 @@
 # Apache/PHP/Drupal settings:
 #
 
+SetEnv APPLICATION_ENV=production
+
 # Use PHP 5.3
 AddType application/x-httpd-php53 .php
 
