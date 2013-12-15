@@ -78,7 +78,7 @@ function vvsq_restaurant_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '31',
+        'weight' => '3',
       ),
     ),
   );
@@ -147,7 +147,7 @@ function vvsq_restaurant_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '33',
+        'weight' => '4',
       ),
     ),
   );
@@ -192,7 +192,7 @@ function vvsq_restaurant_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -216,7 +216,7 @@ function vvsq_restaurant_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '35',
+        'weight' => '8',
       ),
     ),
   );
@@ -261,7 +261,7 @@ function vvsq_restaurant_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -284,7 +284,7 @@ function vvsq_restaurant_field_default_fields() {
           'display_label' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '39',
+        'weight' => '13',
       ),
     ),
   );
@@ -329,7 +329,7 @@ function vvsq_restaurant_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -353,7 +353,7 @@ function vvsq_restaurant_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '32',
+        'weight' => '5',
       ),
     ),
   );
@@ -396,7 +396,7 @@ function vvsq_restaurant_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '8',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -420,7 +420,7 @@ function vvsq_restaurant_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '40',
+        'weight' => '10',
       ),
     ),
   );
@@ -465,7 +465,7 @@ function vvsq_restaurant_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -489,7 +489,87 @@ function vvsq_restaurant_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '34',
+        'weight' => '7',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-restaurant-field_pictures'.
+  $fields['node-restaurant-field_pictures'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '5',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_pictures',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'restaurant',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'flexslider_format',
+          'settings' => array(
+            'destination_image_style' => 'large',
+            'source_image_style' => 'slideshow',
+          ),
+          'type' => 'flexslider_format_php_image',
+          'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_pictures',
+      'label' => 'Pictures',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 1,
+        'default_image' => 0,
+        'file_directory' => 'restaurants',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '',
+        'max_resolution' => '1600x1200',
+        'min_resolution' => '50x50',
+        'title_field' => 1,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'preview_image_style' => 'thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '14',
       ),
     ),
   );
@@ -530,7 +610,7 @@ function vvsq_restaurant_field_default_fields() {
             ),
           ),
           'type' => 'fivestar_formatter_default',
-          'weight' => '9',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -554,7 +634,7 @@ function vvsq_restaurant_field_default_fields() {
         'module' => 'fivestar',
         'settings' => array(),
         'type' => 'exposed',
-        'weight' => '41',
+        'weight' => '12',
       ),
     ),
   );
@@ -599,7 +679,7 @@ function vvsq_restaurant_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '7',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -623,76 +703,7 @@ function vvsq_restaurant_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '38',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-restaurant-field_url'.
-  $fields['node-restaurant-field_url'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_url',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(
-        'max_length' => '255',
-      ),
-      'translatable' => '0',
-      'type' => 'text',
-    ),
-    'field_instance' => array(
-      'bundle' => 'restaurant',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '6',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_url',
-      'label' => 'URL',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'size' => '60',
-        ),
-        'type' => 'text_textfield',
-        'weight' => '37',
+        'weight' => '6',
       ),
     ),
   );
@@ -736,7 +747,7 @@ function vvsq_restaurant_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '5',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -757,7 +768,91 @@ function vvsq_restaurant_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '36',
+        'weight' => '9',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-restaurant-field_website'.
+  $fields['node-restaurant-field_website'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_website',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'link',
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => 'default',
+        ),
+        'display' => array(
+          'url_cutoff' => 80,
+        ),
+        'enable_tokens' => 1,
+        'title' => 'optional',
+        'title_maxlength' => 128,
+        'title_value' => '',
+        'url' => 0,
+      ),
+      'translatable' => '0',
+      'type' => 'link_field',
+    ),
+    'field_instance' => array(
+      'bundle' => 'restaurant',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_default',
+          'weight' => '6',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_website',
+      'label' => 'Website',
+      'required' => 0,
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'configurable_title' => 0,
+          'rel' => '',
+          'target' => '_blank',
+          'title' => '',
+        ),
+        'display' => array(
+          'url_cutoff' => '80',
+        ),
+        'enable_tokens' => 1,
+        'rel_remove' => 'default',
+        'title' => 'optional',
+        'title_maxlength' => '255',
+        'title_value' => '',
+        'url' => 0,
+        'user_register_form' => FALSE,
+        'validate_url' => 1,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_field',
+        'weight' => '11',
       ),
     ),
   );
@@ -771,10 +866,11 @@ function vvsq_restaurant_field_default_fields() {
   t('Body');
   t('Opening Times');
   t('Phone Number');
+  t('Pictures');
   t('Rating');
   t('State');
-  t('URL');
   t('Vegetarian/Vegan');
+  t('Website');
 
   return $fields;
 }

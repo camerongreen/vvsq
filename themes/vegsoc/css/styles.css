@@ -87,3 +87,15 @@ body .view-uc-catalog table td,
 body .view-uc-catalog-terms table td {
   width: 33.3%;
 }
+/* line 93, ../scss/styles.scss */
+body .view-restaurants h3 {
+  margin-top: 1em;
+}
+/* line 96, ../scss/styles.scss */
+body .view-restaurants .field-content {
+  margin-left: 1em;
+}
+/* line 102, ../scss/styles.scss */
+body.node-type-restaurant .content .field-label {
+  width: 220px;
+}

@@ -116,6 +116,8 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['fields']['field_rating']['id'] = 'field_rating';
   $handler->display->display_options['fields']['field_rating']['table'] = 'field_data_field_rating';
   $handler->display->display_options['fields']['field_rating']['field'] = 'field_rating';
+  $handler->display->display_options['fields']['field_rating']['label'] = '';
+  $handler->display->display_options['fields']['field_rating']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_rating']['click_sort_column'] = 'rating';
   $handler->display->display_options['fields']['field_rating']['settings'] = array(
     'widget' => array(
@@ -125,11 +127,15 @@ function vvsq_restaurant_views_default_views() {
     'style' => 'average',
     'text' => 'average',
   );
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Field: Rating (field_rating:rating) */
+  $handler->display->display_options['sorts']['field_rating_rating']['id'] = 'field_rating_rating';
+  $handler->display->display_options['sorts']['field_rating_rating']['table'] = 'field_data_field_rating';
+  $handler->display->display_options['sorts']['field_rating_rating']['field'] = 'field_rating_rating';
+  $handler->display->display_options['sorts']['field_rating_rating']['order'] = 'DESC';
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
   /* Contextual filter: Content: Area (field_area) */
   $handler->display->display_options['arguments']['field_area_value']['id'] = 'field_area_value';
   $handler->display->display_options['arguments']['field_area_value']['table'] = 'field_data_field_area';

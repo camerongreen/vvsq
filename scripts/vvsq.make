@@ -48,6 +48,8 @@ projects[jquery_plugin][version] = "1"
 
 projects[jquery_update][version] = "2"
 
+projects[link][version] = "1"
+
 projects[libraries][version] = "2"
 
 projects[metatag][version] = "1"

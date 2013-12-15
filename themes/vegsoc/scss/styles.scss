@@ -89,4 +89,19 @@ body {
       }
     }
   }
+  .view-restaurants {
+    h3 {
+      margin-top: 1em;
+    }
+    .field-content {
+      margin-left: 1em;
+    }
+  }
+  &.node-type-restaurant {
+    .content {
+      .field-label {
+        width: 220px;
+      }
+    }
+  }
 }

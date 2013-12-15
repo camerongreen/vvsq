@@ -43,7 +43,7 @@ class VvsqRestaurantsMigration extends Migration {
     $this->addFieldMapping('field_phone_number', 'phone_number');
     $this->addFieldMapping('field_alcohol', 'alcohol');
     $this->addFieldMapping('field_vegetarian_vegan', 'vegetarian')->callbacks(array($this, 'setType'));
-    $this->addFieldMapping('field_url', 'URL');
+    $this->addFieldMapping('field_website', 'URL');
     $this->addFieldMapping('field_state', 'state_name');
     $this->addFieldMapping('field_approved', 'approved')->callbacks(array($this, 'setApproved'));
   }
