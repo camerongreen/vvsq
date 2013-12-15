@@ -112,6 +112,12 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Vegetarian/Vegan */
+  $handler->display->display_options['fields']['field_vegetarian_vegan']['id'] = 'field_vegetarian_vegan';
+  $handler->display->display_options['fields']['field_vegetarian_vegan']['table'] = 'field_data_field_vegetarian_vegan';
+  $handler->display->display_options['fields']['field_vegetarian_vegan']['field'] = 'field_vegetarian_vegan';
+  $handler->display->display_options['fields']['field_vegetarian_vegan']['label'] = '';
+  $handler->display->display_options['fields']['field_vegetarian_vegan']['element_label_colon'] = FALSE;
   /* Field: Field: Rating */
   $handler->display->display_options['fields']['field_rating']['id'] = 'field_rating';
   $handler->display->display_options['fields']['field_rating']['table'] = 'field_data_field_rating';
@@ -127,6 +133,11 @@ function vvsq_restaurant_views_default_views() {
     'style' => 'average',
     'text' => 'average',
   );
+  /* Sort criterion: Content: Vegetarian/Vegan (field_vegetarian_vegan) */
+  $handler->display->display_options['sorts']['field_vegetarian_vegan_value']['id'] = 'field_vegetarian_vegan_value';
+  $handler->display->display_options['sorts']['field_vegetarian_vegan_value']['table'] = 'field_data_field_vegetarian_vegan';
+  $handler->display->display_options['sorts']['field_vegetarian_vegan_value']['field'] = 'field_vegetarian_vegan_value';
+  $handler->display->display_options['sorts']['field_vegetarian_vegan_value']['order'] = 'DESC';
   /* Sort criterion: Field: Rating (field_rating:rating) */
   $handler->display->display_options['sorts']['field_rating_rating']['id'] = 'field_rating_rating';
   $handler->display->display_options['sorts']['field_rating_rating']['table'] = 'field_data_field_rating';
