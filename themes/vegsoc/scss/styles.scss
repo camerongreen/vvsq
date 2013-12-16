@@ -101,6 +101,18 @@ body {
       margin-left: 1em;
     }
   }
+  .view-events {
+    div.entry_content {
+      margin-bottom: 3em;
+      div.field-name-field-start {
+        margin-bottom: 1ex;
+        span.date-display-start,
+        span.date-display-end {
+          font-weight: bold;
+        }
+      }
+    }
+  }
   &.node-type-restaurant {
     .content {
       .field-label {

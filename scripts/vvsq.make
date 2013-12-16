@@ -13,6 +13,8 @@ projects[advanced_help][version] = "1"
 
 projects[advanced_forum][version] = "2"
 
+projects[boost][version] = "1"
+
 projects[captcha][version] = "1"
 
 projects[ctools][version] = "1"

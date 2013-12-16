@@ -100,7 +100,20 @@ body .view-restaurants h3 {
 body .view-restaurants .field-content {
   margin-left: 1em;
 }
-/* line 106, ../scss/styles.scss */
+/* line 105, ../scss/styles.scss */
+body .view-events div.entry_content {
+  margin-bottom: 3em;
+}
+/* line 107, ../scss/styles.scss */
+body .view-events div.entry_content div.field-name-field-start {
+  margin-bottom: 1ex;
+}
+/* line 110, ../scss/styles.scss */
+body .view-events div.entry_content div.field-name-field-start span.date-display-start,
+body .view-events div.entry_content div.field-name-field-start span.date-display-end {
+  font-weight: bold;
+}
+/* line 118, ../scss/styles.scss */
 body.node-type-restaurant .content .field-label {
   width: 220px;
 }
