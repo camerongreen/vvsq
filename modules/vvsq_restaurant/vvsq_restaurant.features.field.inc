@@ -52,6 +52,12 @@ function vvsq_restaurant_field_default_fields() {
           'type' => 'text_default',
           'weight' => '0',
         ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -125,6 +131,12 @@ function vvsq_restaurant_field_default_fields() {
           'type' => 'text_default',
           'weight' => '2',
         ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -193,6 +205,12 @@ function vvsq_restaurant_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '7',
+        ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -263,6 +281,12 @@ function vvsq_restaurant_field_default_fields() {
           'type' => 'hidden',
           'weight' => '11',
         ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -331,6 +355,12 @@ function vvsq_restaurant_field_default_fields() {
           'type' => 'text_default',
           'weight' => '4',
         ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -397,6 +427,12 @@ function vvsq_restaurant_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '9',
+        ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -466,6 +502,12 @@ function vvsq_restaurant_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '5',
+        ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -538,6 +580,12 @@ function vvsq_restaurant_field_default_fields() {
           ),
           'type' => 'flexslider_format_php_image',
           'weight' => '1',
+        ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -612,6 +660,12 @@ function vvsq_restaurant_field_default_fields() {
           'type' => 'fivestar_formatter_default',
           'weight' => '10',
         ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -681,6 +735,12 @@ function vvsq_restaurant_field_default_fields() {
           'type' => 'text_default',
           'weight' => '3',
         ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -749,6 +809,12 @@ function vvsq_restaurant_field_default_fields() {
           'type' => 'list_default',
           'weight' => '8',
         ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -815,6 +881,12 @@ function vvsq_restaurant_field_default_fields() {
           'settings' => array(),
           'type' => 'link_default',
           'weight' => '6',
+        ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
