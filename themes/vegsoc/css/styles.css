@@ -100,20 +100,35 @@ body .view-restaurants h3 {
 body .view-restaurants .field-content {
   margin-left: 1em;
 }
-/* line 105, ../scss/styles.scss */
+/* line 106, ../scss/styles.scss */
+body .view-events-archive div.entry_content,
 body .view-events div.entry_content {
   margin-bottom: 3em;
 }
-/* line 107, ../scss/styles.scss */
+/* line 108, ../scss/styles.scss */
+body .view-events-archive div.entry_content div.field-name-field-start,
 body .view-events div.entry_content div.field-name-field-start {
   margin-bottom: 1ex;
 }
-/* line 110, ../scss/styles.scss */
+/* line 111, ../scss/styles.scss */
+body .view-events-archive div.entry_content div.field-name-field-start span.date-display-start,
+body .view-events-archive div.entry_content div.field-name-field-start span.date-display-end,
 body .view-events div.entry_content div.field-name-field-start span.date-display-start,
 body .view-events div.entry_content div.field-name-field-start span.date-display-end {
   font-weight: bold;
 }
-/* line 118, ../scss/styles.scss */
+/* line 122, ../scss/styles.scss */
+body.node-type-event div.content div.field-name-field-start,
+body.node-type-event div.content div.field-name-field-location,
+body.node-type-event div.content div.field-name-field-cost,
+body.node-type-event div.content div.field-name-field-more-info {
+  margin-bottom: 1em;
+}
+/* line 125, ../scss/styles.scss */
+body.node-type-event div.content .field-label {
+  width: 12ex;
+}
+/* line 132, ../scss/styles.scss */
 body.node-type-restaurant .content .field-label {
   width: 220px;
 }

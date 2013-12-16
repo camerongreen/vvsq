@@ -101,6 +101,7 @@ body {
       margin-left: 1em;
     }
   }
+  .view-events-archive,
   .view-events {
     div.entry_content {
       margin-bottom: 3em;
@@ -110,6 +111,19 @@ body {
         span.date-display-end {
           font-weight: bold;
         }
+      }
+    }
+  }
+  &.node-type-event {
+    div.content {
+      div.field-name-field-start,
+      div.field-name-field-location,
+      div.field-name-field-cost,
+      div.field-name-field-more-info {
+        margin-bottom: 1em;
+      }
+      .field-label {
+        width: 12ex;
       }
     }
   }
