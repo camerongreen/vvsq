@@ -125,6 +125,10 @@ drush -y pm-enable vvsq_events vvsq_menus vvsq_misc vvsq_restaurants
 drush -y pm-enable vegsoc
 drush vset theme_default vegsoc
 
+# setup vegsoc_admin theme
+drush -y pm-enable vegsoc_admin
+drush vset admin_theme vegsoc_admin
+
 
 # I won't -y this as you should note any new additions 
 # and add to the drush.make script to save yourself time in the future

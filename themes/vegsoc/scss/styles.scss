@@ -1,3 +1,6 @@
+/*
+  VVSQ colour scheme
+*/
 /* Light Gold */
 $llakacham: #F0F078;
 /* Medium Gold */
@@ -47,7 +50,9 @@ body {
     //  background-color: $dark-chocolate;
     //}
   }
+  #forum-topic-list,
   #forum {
+    .sticky-header,
     .forum-table {
       width: 100%;
       td {
