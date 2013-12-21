@@ -1,0 +1,7 @@
+/* line 5, ../scss/admin-styles.scss */
+#product-node-form .form-item-pkg-qty,
+#product-node-form #edit-weight,
+#product-node-form #edit-dimensions,
+#product-node-form .form-item-list-price {
+  display: none !important;
+}
