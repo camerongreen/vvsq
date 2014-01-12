@@ -4,14 +4,13 @@
 # it turns on the devel module etc.
 #
 # Run this script from the parent directory, eg 
-#   SITE_ENV=development DEFAULT_SITE_EMAIL="vvsq@whatever.org" ../vvsq/scripts/import_prod_db.sh
+#   APPLICATION_ENV=development DEFAULT_SITE_EMAIL="vvsq@whatever.org" ../vvsq/scripts/import_prod_db.sh
 # it will ask you for the db you've created's details, import the dump
 # file from prod you've downloaded into it, enable and disable some 
 # mods, set some values etc
 # 
 # Important: This does not currently change the paypal details, you will need to do that manually
 #
-export SITE_ENV=${SITE_ENV}
 
 DEFAULT_HOST=vvsq.test
 
@@ -99,12 +98,12 @@ fi
 pushd ${SITE_BASE_URL}/${PUBLIC_DIR}
 
 drush -y pm-enable context_ui devel views_ui stage_file_proxy
-drush -y pm-disable googleanalytics 
+drush -y pm-disable googleanalytics
 drush vset site_mail ${DEFAULT_SITE_EMAIL}
 drush vset file_private_path ${SITE_BASE_URL}/private
 drush vset file_temporary_path /tmp
-drush -y vset preprocess_css 0 
-drush -y vset preprocess_js 0 
+drush -y vset preprocess_css 0
+drush -y vset preprocess_js 0
 
 drush cc all
 
