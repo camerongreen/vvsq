@@ -4,13 +4,14 @@
 # it turns on the devel module etc.
 #
 # Run this script from the parent directory, eg 
-#   DEFAULT_SITE_EMAIL="vvsq@whatever.org" ./vvsq/scripts/import_prod.sh
+#   SITE_ENV=development DEFAULT_SITE_EMAIL="vvsq@whatever.org" ../vvsq/scripts/import_prod_db.sh
 # it will ask you for the db you've created's details, import the dump
 # file from prod you've downloaded into it, enable and disable some 
 # mods, set some values etc
 # 
 # Important: This does not currently change the paypal details, you will need to do that manually
 #
+export SITE_ENV=${SITE_ENV}
 
 DEFAULT_HOST=vvsq.test
 
@@ -85,7 +86,7 @@ if [ -z $DB_FILE ]
     DB_FILE=$DEFAULT_DB_FILE
 fi
 
-gzip -c $DB_FILE | mysql -h $DB_HOST -u $DB_USER -p$DB_PASSWD $DB_NAME
+zcat $DB_FILE | mysql -h $DB_HOST -u $DB_USER -p$DB_PASSWD $DB_NAME
 
 if [ $? -ne 0 ]
   then
