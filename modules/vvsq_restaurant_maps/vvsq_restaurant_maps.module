@@ -1,0 +1,63 @@
+<?php
+/**
+ * @file
+ * Provides maps for the VVSQ Site
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function vvsq_restaurant_maps_block_info() {
+  return array(
+    "vvsq_qld_map" => array(
+      "info" => t("Queensland Restaurant Map"),
+    ),
+    "vvsq_restaurant_map" => array(
+      "info" => t("Individual Restaurant Map"),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function vvsq_restaurant_maps_block_view($delta = "") {
+  $block = array();
+
+  switch ($delta) {
+    case "vvsq_qld_map":
+      $block["subject"] = t("Queensland Restaurants");
+      if (user_access("access content")) {
+        $block["content"] = theme("vvsq_qld_map", array());
+      }
+      break;
+    case "vvsq_restaurant_map":
+      $block["subject"] = t("Restaurant Location");
+      if (user_access("access content")) {
+        $block["content"] = theme("vvsq_restaurant_map", array());
+      }
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_theme();
+ */
+function vvsq_restaurant_maps_theme() {
+  return array(
+    "vvsq_qld_map" => array(
+      "template" => "theme/qld-map",
+      "variables" => array(
+        "restaurants" => array("one", "two")
+      )
+    ),
+    "vvsq_restaurant_map" => array(
+      "template" => "theme/restaurant-map",
+      "variables" => array(
+        "node" => node_load(arg(1))
+      )
+    ),
+  );
+}

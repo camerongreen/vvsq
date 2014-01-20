@@ -1,0 +1,6 @@
+name = VVSQ Restaurant Maps
+description = The individual maps and the state maps
+core = 7.x
+package = VVSQ
+version = 7.x-1.0
+project = vvsq_restaurant_maps
