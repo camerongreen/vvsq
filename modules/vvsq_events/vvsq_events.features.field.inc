@@ -68,7 +68,7 @@ function vvsq_events_field_default_fields() {
             'trim_length' => 600,
           ),
           'type' => 'text_summary_or_trimmed',
-          'weight' => '0',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
@@ -144,7 +144,7 @@ function vvsq_events_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '1',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
@@ -218,7 +218,7 @@ function vvsq_events_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '3',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
@@ -291,7 +291,7 @@ function vvsq_events_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '2',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
@@ -376,16 +376,16 @@ function vvsq_events_field_default_fields() {
           'weight' => '0',
         ),
         'teaser' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '4',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
       'field_name' => 'field_start',
-      'label' => 'Start',
-      'required' => 0,
+      'label' => 'Time',
+      'required' => 1,
       'settings' => array(
         'default_value' => 'now',
         'default_value2' => 'same',
@@ -416,7 +416,7 @@ function vvsq_events_field_default_fields() {
   t('Cost');
   t('Location');
   t('More Info');
-  t('Start');
+  t('Time');
 
   return $fields;
 }

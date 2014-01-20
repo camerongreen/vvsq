@@ -46,7 +46,7 @@ function vvsq_events_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Start */
+  /* Field: Content: Time */
   $handler->display->display_options['fields']['field_start']['id'] = 'field_start';
   $handler->display->display_options['fields']['field_start']['table'] = 'field_data_field_start';
   $handler->display->display_options['fields']['field_start']['field'] = 'field_start';
@@ -69,7 +69,7 @@ function vvsq_events_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Sort criterion: Content: Start -  start date (field_start) */
+  /* Sort criterion: Content: Time -  start date (field_start) */
   $handler->display->display_options['sorts']['field_start_value']['id'] = 'field_start_value';
   $handler->display->display_options['sorts']['field_start_value']['table'] = 'field_data_field_start';
   $handler->display->display_options['sorts']['field_start_value']['field'] = 'field_start_value';
@@ -87,7 +87,7 @@ function vvsq_events_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Content: Start -  start date (field_start) */
+  /* Filter criterion: Content: Time -  start date (field_start) */
   $handler->display->display_options['filters']['field_start_value']['id'] = 'field_start_value';
   $handler->display->display_options['filters']['field_start_value']['table'] = 'field_data_field_start';
   $handler->display->display_options['filters']['field_start_value']['field'] = 'field_start_value';
@@ -141,7 +141,7 @@ function vvsq_events_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Start */
+  /* Field: Content: Time */
   $handler->display->display_options['fields']['field_start']['id'] = 'field_start';
   $handler->display->display_options['fields']['field_start']['table'] = 'field_data_field_start';
   $handler->display->display_options['fields']['field_start']['field'] = 'field_start';
@@ -164,7 +164,7 @@ function vvsq_events_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Sort criterion: Content: Start -  start date (field_start) */
+  /* Sort criterion: Content: Time -  start date (field_start) */
   $handler->display->display_options['sorts']['field_start_value']['id'] = 'field_start_value';
   $handler->display->display_options['sorts']['field_start_value']['table'] = 'field_data_field_start';
   $handler->display->display_options['sorts']['field_start_value']['field'] = 'field_start_value';
@@ -183,7 +183,7 @@ function vvsq_events_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Content: Start -  start date (field_start) */
+  /* Filter criterion: Content: Time -  start date (field_start) */
   $handler->display->display_options['filters']['field_start_value']['id'] = 'field_start_value';
   $handler->display->display_options['filters']['field_start_value']['table'] = 'field_data_field_start';
   $handler->display->display_options['filters']['field_start_value']['field'] = 'field_start_value';
