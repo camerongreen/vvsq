@@ -15,10 +15,10 @@ function vvsq_menus_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'catalog',
     'router_path' => 'catalog',
-    'link_title' => 'Shop Online',
+    'link_title' => 'Shop',
     'options' => array(
       'attributes' => array(
-        'title' => 'Books, Dvds',
+        'title' => 'Books & DVDs',
       ),
     ),
     'module' => 'menu',
@@ -36,7 +36,7 @@ function vvsq_menus_menu_default_menu_links() {
     'link_title' => 'Events',
     'options' => array(
       'attributes' => array(
-        'title' => 'Come along',
+        'title' => 'Visit & Meet',
       ),
     ),
     'module' => 'menu',
@@ -54,7 +54,7 @@ function vvsq_menus_menu_default_menu_links() {
     'link_title' => 'Forum',
     'options' => array(
       'attributes' => array(
-        'title' => 'Chat online',
+        'title' => 'Discuss & Share',
       ),
     ),
     'module' => 'menu',
@@ -72,13 +72,13 @@ function vvsq_menus_menu_default_menu_links() {
     'link_title' => 'About',
     'options' => array(
       'attributes' => array(
-        'title' => 'About VVSQ',
+        'title' => 'VVSQ',
       ),
     ),
     'module' => 'menu',
     'hidden' => '0',
     'external' => '0',
-    'has_children' => '0',
+    'has_children' => '1',
     'expanded' => '0',
     'weight' => '0',
   );
@@ -90,7 +90,7 @@ function vvsq_menus_menu_default_menu_links() {
     'link_title' => 'Queensland',
     'options' => array(
       'attributes' => array(
-        'title' => 'Being veg in',
+        'title' => 'For Vegans <br>& Vegetarians',
       ),
     ),
     'module' => 'menu',
@@ -132,87 +132,15 @@ function vvsq_menus_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '0',
   );
-  // Exported menu link: menu-top-menu:<front>
-  $menu_links['menu-top-menu:<front>'] = array(
-    'menu_name' => 'menu-top-menu',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'Home',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '1',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '0',
-  );
-  // Exported menu link: menu-top-menu:contact
-  $menu_links['menu-top-menu:contact'] = array(
-    'menu_name' => 'menu-top-menu',
-    'link_path' => 'contact',
-    'router_path' => 'contact',
-    'link_title' => 'Contact',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '10',
-  );
-  // Exported menu link: menu-top-menu:node/6
-  $menu_links['menu-top-menu:node/6'] = array(
-    'menu_name' => 'menu-top-menu',
-    'link_path' => 'node/6',
-    'router_path' => 'node/%',
-    'link_title' => 'Join',
-    'options' => array(
-      'attributes' => array(),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '20',
-  );
-  // Exported menu link: menu-top-menu:node/7
-  $menu_links['menu-top-menu:node/7'] = array(
-    'menu_name' => 'menu-top-menu',
-    'link_path' => 'node/7',
-    'router_path' => 'node/%',
-    'link_title' => 'Donate',
-    'options' => array(
-      'attributes' => array(),
-    ),
-    'module' => 'menu',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '0',
-    'expanded' => '0',
-    'weight' => '30',
-  );
   // Translatables
   // Included for use with string extractors like potx.
   t('About');
-  t('Contact');
-  t('Donate');
   t('Events');
   t('Forum');
-  t('Home');
-  t('Join');
   t('Nutrition');
   t('Portfolio');
   t('Queensland');
-  t('Shop Online');
+  t('Shop');
 
 
   return $menu_links;
