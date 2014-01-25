@@ -12,6 +12,9 @@ function vvsq_restaurant_maps_block_info() {
     "vvsq_qld_map" => array(
       "info" => t("Queensland Restaurant Map"),
     ),
+    "vvsq_area_map" => array(
+      "info" => t("Queensland Area Map"),
+    ),
     "vvsq_restaurant_map" => array(
       "info" => t("Individual Restaurant Map"),
     ),
@@ -26,12 +29,21 @@ function vvsq_restaurant_maps_block_view($delta = "") {
 
   switch ($delta) {
     case "vvsq_qld_map":
+    case "vvsq_area_map":
       if (user_access("access content")) {
         drupal_add_js("//maps.googleapis.com/maps/api/js?sensor=false", "external");
-        $restaurants = _get_state_restaurants('QLD');
-        $block["content"] = theme("vvsq_qld_map", array(
-          "restaurants" => $restaurants
-        ));
+        if ($delta === "vvsq_area_map") {
+          $area = arg(1);
+          $restaurants = _get_restaurants_in('QLD', $area);
+        }
+        else {
+          $restaurants = _get_restaurants_in('QLD');
+        }
+        if (is_array($restaurants) && (count($restaurants) > 0)) {
+          $block["content"] = theme("vvsq_restaurants_map", array(
+            "restaurants" => $restaurants
+          ));
+        }
       }
       break;
     case "vvsq_restaurant_map":
@@ -59,7 +71,7 @@ function vvsq_restaurant_maps_block_view($delta = "") {
  */
 function vvsq_restaurant_maps_theme() {
   return array(
-    "vvsq_qld_map" => array(
+    "vvsq_restaurants_map" => array(
       "template" => "theme/qld-map",
       "variables" => array(
         "restaurants" => array("one", "two")
@@ -116,7 +128,7 @@ function vvsq_restaurant_maps_node_presave($node) {
   }
 }
 
-function _get_state_restaurants($state) {
+function _get_restaurants_in($state, $area = '') {
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'restaurant')
@@ -125,6 +137,10 @@ function _get_state_restaurants($state) {
     ->fieldCondition('field_latitude', 'value', '', '!=')
     ->fieldCondition('field_latitude', 'value', 'NULL', '!=')
     ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  if ($area) {
+    $query->fieldCondition('field_area', 'value', $area);
+  }
 
   $result = $query->execute();
   if (isset($result['node'])) {

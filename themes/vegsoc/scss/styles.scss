@@ -98,6 +98,26 @@ body {
       }
     }
   }
+  &.page-restaurants-in {
+    .region-content {
+      position: relative;
+      min-height: 500px;
+    }
+    #block-vvsq-restaurant-maps-vvsq-area-map {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 400px;
+      margin-left: 1em;
+      margin-bottom: 1em;
+      #restaurants-map {
+        height: 500px;
+        img {
+          max-width: none;
+        }
+      }
+    }
+  }
   &.page-restaurants {
     .view-restaurants {
       h3 {
@@ -120,6 +140,9 @@ body {
       margin-bottom: 1em;
       #restaurants-map {
         height: 500px;
+        img {
+          max-width: none;
+        }
       }
     }
   }
@@ -171,6 +194,9 @@ body {
       margin-bottom: 1em;
       #restaurant-map {
         height: 300px;
+        img {
+          max-width: none;
+        }
       }
     }
   }
