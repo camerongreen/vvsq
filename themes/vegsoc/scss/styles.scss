@@ -98,12 +98,29 @@ body {
       }
     }
   }
-  .view-restaurants {
-    h3 {
-      margin-top: 1em;
+  &.page-restaurants {
+    .view-restaurants {
+      h3 {
+        margin-top: 1em;
+      }
+      .field-content {
+        margin-left: 1em;
+      }
     }
-    .field-content {
+    .region-content {
+      position: relative;
+      min-height: 500px;
+    }
+    #block-vvsq-restaurant-maps-vvsq-qld-map {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 400px;
       margin-left: 1em;
+      margin-bottom: 1em;
+      #restaurants-map {
+        height: 500px;
+      }
     }
   }
   .view-events-archive,
@@ -152,7 +169,7 @@ body {
       width: 300px;
       margin-left: 1em;
       margin-bottom: 1em;
-      #qld-map {
+      #restaurant-map {
         height: 300px;
       }
     }

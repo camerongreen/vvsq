@@ -6,7 +6,7 @@
       center: myLatLng,
       zoom: 15
     };
-    var map = new google.maps.Map(document.getElementById("qld-map"),
+    var map = new google.maps.Map(document.getElementById("restaurant-map"),
       mapOptions);
     var marker = new google.maps.Marker({
       position: myLatLng,
@@ -16,5 +16,5 @@
   }
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-<div id="qld-map">
+<div id="restaurant-map">
 </div>

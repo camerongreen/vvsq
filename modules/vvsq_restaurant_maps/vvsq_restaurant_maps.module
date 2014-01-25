@@ -26,9 +26,12 @@ function vvsq_restaurant_maps_block_view($delta = "") {
 
   switch ($delta) {
     case "vvsq_qld_map":
-      $block["subject"] = t("Queensland Restaurants");
       if (user_access("access content")) {
-        $block["content"] = theme("vvsq_qld_map", array());
+        drupal_add_js("//maps.googleapis.com/maps/api/js?sensor=false", "external");
+        $restaurants = _get_state_restaurants('QLD');
+        $block["content"] = theme("vvsq_qld_map", array(
+          "restaurants" => $restaurants
+        ));
       }
       break;
     case "vvsq_restaurant_map":
@@ -101,7 +104,8 @@ function vvsq_restaurant_maps_node_presave($node) {
       $location = $geocode_response->results[0]->geometry->location;
       $node->field_latitude[$node->language] = array(array('value' => $location->lat));
       $node->field_longitude[$node->language] = array(array('value' => $location->lng));
-    } else {
+    }
+    else {
       drupal_set_message("Unable to geocode the address", "error");
       watchdog("vvsq_misc", "Unable to geocode address %address with response code %code and error message - %error", array(
         "%address" => $geocode_address,
@@ -110,4 +114,24 @@ function vvsq_restaurant_maps_node_presave($node) {
       ), WATCHDOG_ERROR);
     }
   }
+}
+
+function _get_state_restaurants($state) {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'restaurant')
+    ->propertyCondition('status', 1)
+    ->fieldCondition('field_state', 'value', $state)
+    ->fieldCondition('field_latitude', 'value', '', '!=')
+    ->fieldCondition('field_latitude', 'value', 'NULL', '!=')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $result = $query->execute();
+  if (isset($result['node'])) {
+    $restaurant_nids = array_keys($result['node']);
+    $return_val = entity_load('node', $restaurant_nids);
+    return $return_val;
+  }
+
+  return array();
 }
