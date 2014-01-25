@@ -77,6 +77,11 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'restaurant' => 'restaurant',
   );
+  /* Filter criterion: Content: State (field_state) */
+  $handler->display->display_options['filters']['field_state_value']['id'] = 'field_state_value';
+  $handler->display->display_options['filters']['field_state_value']['table'] = 'field_data_field_state';
+  $handler->display->display_options['filters']['field_state_value']['field'] = 'field_state_value';
+  $handler->display->display_options['filters']['field_state_value']['value'] = 'QLD';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
