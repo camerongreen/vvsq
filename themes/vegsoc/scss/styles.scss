@@ -133,9 +133,27 @@ body {
     }
   }
   &.node-type-restaurant {
+    .region-content {
+      position: relative;
+    }
     .content {
       .field-label {
         width: 220px;
+      }
+    }
+    #block-system-main .entry_content {
+      width: 55%;
+      min-height: 300px;
+    }
+    #block-vvsq-restaurant-maps-vvsq-restaurant-map {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 300px;
+      margin-left: 1em;
+      margin-bottom: 1em;
+      #qld-map {
+        height: 300px;
       }
     }
   }

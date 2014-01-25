@@ -279,7 +279,7 @@ function vvsq_restaurant_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '11',
+          'weight' => '13',
         ),
         'event_teaser' => array(
           'label' => 'above',
@@ -384,6 +384,154 @@ function vvsq_restaurant_field_default_fields() {
         ),
         'type' => 'text_textfield',
         'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-restaurant-field_latitude'.
+  $fields['node-restaurant-field_latitude'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_latitude',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '100',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'restaurant',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'If this field is empty on either saving or updating a restaurant, an attempt at auto populating them from the address will be made.  If this doesn\'t work well, test modifying the address on a Google Maps search until the address can be found, or simply enter the latitude and longitude by hand.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '12',
+        ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_latitude',
+      'label' => 'Latitude',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '30',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '15',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-restaurant-field_longitude'.
+  $fields['node-restaurant-field_longitude'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_longitude',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '100',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'restaurant',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '11',
+        ),
+        'event_teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_longitude',
+      'label' => 'Longitude',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '30',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '16',
       ),
     ),
   );
@@ -936,6 +1084,9 @@ function vvsq_restaurant_field_default_fields() {
   t('Approved');
   t('Area');
   t('Body');
+  t('If this field is empty on either saving or updating a restaurant, an attempt at auto populating them from the address will be made.  If this doesn\'t work well, test modifying the address on a Google Maps search until the address can be found, or simply enter the latitude and longitude by hand.');
+  t('Latitude');
+  t('Longitude');
   t('Opening Times');
   t('Phone Number');
   t('Pictures');

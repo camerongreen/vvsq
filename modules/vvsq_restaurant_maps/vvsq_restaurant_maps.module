@@ -32,9 +32,18 @@ function vvsq_restaurant_maps_block_view($delta = "") {
       }
       break;
     case "vvsq_restaurant_map":
-      $block["subject"] = t("Restaurant Location");
       if (user_access("access content")) {
-        $block["content"] = theme("vvsq_restaurant_map", array());
+        $node = node_load(arg(1));
+        // if latitude is set show a map
+        if (array_key_exists($node->language, $node->field_latitude)) {
+          drupal_add_js("//maps.googleapis.com/maps/api/js?sensor=false", "external");
+          //$block["subject"] = t("@rest Location", array("@rest" => $node->title));
+          $block["content"] = theme("vvsq_restaurant_map", array(
+            "node" => $node,
+            "lat" => $node->field_latitude[$node->language][0]['value'],
+            "lng" => $node->field_longitude[$node->language][0]['value'],
+          ));
+        }
       }
       break;
   }
@@ -60,4 +69,45 @@ function vvsq_restaurant_maps_theme() {
       )
     ),
   );
+}
+
+/**
+ * Implements hook_node_presave()
+ */
+function vvsq_restaurant_maps_node_presave($node) {
+  // to re-encode the address, user must empty lat field
+  $latitude = $node->field_latitude[$node->language];
+  if (!$latitude) {
+    $address = $node->field_address[$node->language][0]['value'];
+    $state = $node->field_state[$node->language][0]['value'];
+    $area = $node->field_area[$node->language][0]['value'];
+
+    //$geocode_address = $node->title . ", " . $address . ", " . $area . ", " . $state . ", Australia";
+    $geocode_address = $address . ", " . $area . ", " . $state . ", Australia";
+    $url = "https://maps.googleapis.com/maps/api/geocode/json";
+
+    $params = array(
+      "sensor" => "false",
+      "address" => $geocode_address
+    );
+
+    $query = http_build_query($params);
+
+    $response = drupal_http_request($url . "?" . $query);
+
+    if ($response->code == 200) {
+      $geocode_response = json_decode($response->data);
+
+      $location = $geocode_response->results[0]->geometry->location;
+      $node->field_latitude[$node->language] = array(array('value' => $location->lat));
+      $node->field_longitude[$node->language] = array(array('value' => $location->lng));
+    } else {
+      drupal_set_message("Unable to geocode the address", "error");
+      watchdog("vvsq_misc", "Unable to geocode address %address with response code %code and error message - %error", array(
+        "%address" => $geocode_address,
+        "%code" => $response->code,
+        "%error" => $response->error
+      ), WATCHDOG_ERROR);
+    }
+  }
 }

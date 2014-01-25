@@ -86,6 +86,9 @@ function vvsq_restaurant_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'event_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
