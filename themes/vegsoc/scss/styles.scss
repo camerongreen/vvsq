@@ -102,12 +102,20 @@ body {
     .region-content {
       position: relative;
       min-height: 500px;
+      .views-row {
+        a {
+          font-size: 120%;
+        }
+      }
+    }
+    #block-system-main {
+      width: 50%;
     }
     #block-vvsq-restaurant-maps-vvsq-area-map {
       position: absolute;
       right: 0px;
       top: 0px;
-      width: 400px;
+      width: 45%;
       margin-left: 1em;
       margin-bottom: 1em;
       #restaurants-map {
@@ -121,10 +129,16 @@ body {
   &.page-restaurants {
     .view-restaurants {
       h3 {
-        margin-top: 1em;
+        display: none;
       }
       .field-content {
         margin-left: 1em;
+      }
+      .views-row {
+        margin-bottom: 1ex;
+        a {
+          font-size: 150%;
+        }
       }
     }
     .region-content {
@@ -135,7 +149,7 @@ body {
       position: absolute;
       right: 0px;
       top: 0px;
-      width: 400px;
+      width: 45%;
       margin-left: 1em;
       margin-bottom: 1em;
       #restaurants-map {
@@ -183,20 +197,25 @@ body {
     }
     #block-system-main .entry_content {
       width: 55%;
-      min-height: 300px;
+      min-height: 350px;
     }
     #block-vvsq-restaurant-maps-vvsq-restaurant-map {
       position: absolute;
       right: 0px;
       top: 0px;
-      width: 300px;
+      width: 35%;
       margin-left: 1em;
       margin-bottom: 1em;
       #restaurant-map {
-        height: 300px;
+        height: 350px;
         img {
           max-width: none;
         }
+      }
+    }
+    .node-restaurant {
+      .comment-form .field-type-fivestar {
+        margin: 1em;
       }
     }
   }

@@ -119,3 +119,13 @@ function vegsoc_preprocess_page(&$variables) {
     ),
   ), 'vegsoc-opera-speed-dial');
 }
+
+
+/**
+ * Implementation of CKEditor default height (http://groups.drupal.org/node/170324)
+ */
+function vegsoc_wysiwyg_editor_settings_alter(&$settings, $context) {
+  if($context['profile']->editor == 'ckeditor') {
+    $settings['height'] = 200;
+  }
+}

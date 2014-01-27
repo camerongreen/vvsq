@@ -27,11 +27,13 @@ function vvsq_restaurant_maps_block_info() {
 function vvsq_restaurant_maps_block_view($delta = "") {
   $block = array();
 
+  $maps_url = "//maps.googleapis.com/maps/api/js?sensor=false&region=AU";
+
   switch ($delta) {
     case "vvsq_qld_map":
     case "vvsq_area_map":
       if (user_access("access content")) {
-        drupal_add_js("//maps.googleapis.com/maps/api/js?sensor=false", "external");
+        drupal_add_js($maps_url, "external");
         if ($delta === "vvsq_area_map") {
           $area = arg(1);
           $restaurants = _get_restaurants_in('QLD', $area);
@@ -51,7 +53,7 @@ function vvsq_restaurant_maps_block_view($delta = "") {
         $node = node_load(arg(1));
         // if latitude is set show a map
         if (array_key_exists($node->language, $node->field_latitude)) {
-          drupal_add_js("//maps.googleapis.com/maps/api/js?sensor=false", "external");
+          drupal_add_js($maps_url, "external");
           //$block["subject"] = t("@rest Location", array("@rest" => $node->title));
           $block["content"] = theme("vvsq_restaurant_map", array(
             "node" => $node,
