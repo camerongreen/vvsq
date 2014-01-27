@@ -792,17 +792,17 @@ function vvsq_restaurant_field_default_fields() {
       'bundle' => 'restaurant',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Add your rating',
       'display' => array(
         'default' => array(
           'label' => 'inline',
           'module' => 'fivestar',
           'settings' => array(
-            'expose' => TRUE,
+            'expose' => 0,
             'style' => 'average',
-            'text' => 'average',
+            'text' => 'none',
             'widget' => array(
-              'fivestar_widget' => NULL,
+              'fivestar_widget' => 'sites/all/modules/fivestar/widgets/hearts/hearts.css',
             ),
           ),
           'type' => 'fivestar_formatter_default',
@@ -834,7 +834,11 @@ function vvsq_restaurant_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'fivestar',
-        'settings' => array(),
+        'settings' => array(
+          'widget' => array(
+            'fivestar_widget' => 'sites/all/modules/fivestar/widgets/hearts/hearts.css',
+          ),
+        ),
         'type' => 'exposed',
         'weight' => '12',
       ),
@@ -1079,6 +1083,7 @@ function vvsq_restaurant_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Add your rating');
   t('Address');
   t('Alcohol');
   t('Approved');

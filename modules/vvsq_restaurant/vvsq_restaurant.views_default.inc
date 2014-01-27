@@ -31,15 +31,9 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1000';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'field_state',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Field: Content: State */
   $handler->display->display_options['fields']['field_state']['id'] = 'field_state';
   $handler->display->display_options['fields']['field_state']['table'] = 'field_data_field_state';
@@ -55,6 +49,16 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['fields']['field_area']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_area']['alter']['path'] = 'restaurants-in/[field_area]';
   $handler->display->display_options['fields']['field_area']['element_label_colon'] = FALSE;
+  /* Field: COUNT(Content: Area) */
+  $handler->display->display_options['fields']['field_area_1']['id'] = 'field_area_1';
+  $handler->display->display_options['fields']['field_area_1']['table'] = 'field_data_field_area';
+  $handler->display->display_options['fields']['field_area_1']['field'] = 'field_area';
+  $handler->display->display_options['fields']['field_area_1']['group_type'] = 'count';
+  $handler->display->display_options['fields']['field_area_1']['label'] = '';
+  $handler->display->display_options['fields']['field_area_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_area_1']['separator'] = ', ';
+  $handler->display->display_options['fields']['field_area_1']['prefix'] = '(';
+  $handler->display->display_options['fields']['field_area_1']['suffix'] = ')';
   /* Sort criterion: Content: State (field_state) */
   $handler->display->display_options['sorts']['field_state_value']['id'] = 'field_state_value';
   $handler->display->display_options['sorts']['field_state_value']['table'] = 'field_data_field_state';
@@ -106,6 +110,7 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1000';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -132,7 +137,7 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['fields']['field_rating']['click_sort_column'] = 'rating';
   $handler->display->display_options['fields']['field_rating']['settings'] = array(
     'widget' => array(
-      'fivestar_widget' => 'default',
+      'fivestar_widget' => 'sites/all/modules/fivestar/widgets/hearts/hearts.css',
     ),
     'expose' => 0,
     'style' => 'average',
@@ -143,11 +148,13 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['sorts']['field_vegetarian_vegan_value']['table'] = 'field_data_field_vegetarian_vegan';
   $handler->display->display_options['sorts']['field_vegetarian_vegan_value']['field'] = 'field_vegetarian_vegan_value';
   $handler->display->display_options['sorts']['field_vegetarian_vegan_value']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['field_vegetarian_vegan_value']['expose']['label'] = 'Restaurant Type';
   /* Sort criterion: Field: Rating (field_rating:rating) */
   $handler->display->display_options['sorts']['field_rating_rating']['id'] = 'field_rating_rating';
   $handler->display->display_options['sorts']['field_rating_rating']['table'] = 'field_data_field_rating';
   $handler->display->display_options['sorts']['field_rating_rating']['field'] = 'field_rating_rating';
   $handler->display->display_options['sorts']['field_rating_rating']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['field_rating_rating']['expose']['label'] = 'Rating';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -180,9 +187,33 @@ function vvsq_restaurant_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'restaurant' => 'restaurant',
   );
+  /* Filter criterion: Content: Vegetarian/Vegan (field_vegetarian_vegan) */
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['id'] = 'field_vegetarian_vegan_value';
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['table'] = 'field_data_field_vegetarian_vegan';
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['field'] = 'field_vegetarian_vegan_value';
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['value'] = array(
+    'vegan' => 'vegan',
+    'vegetarian' => 'vegetarian',
+    'mostly_vegetarian' => 'mostly_vegetarian',
+    'mixed' => 'mixed',
+  );
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['expose']['operator_id'] = 'field_vegetarian_vegan_value_op';
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['expose']['label'] = 'Restaurant Type';
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['expose']['operator'] = 'field_vegetarian_vegan_value_op';
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['expose']['identifier'] = 'field_vegetarian_vegan_value';
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_vegetarian_vegan_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['path'] = 'restaurants-in';
   $export['restaurants_in'] = $view;
 
