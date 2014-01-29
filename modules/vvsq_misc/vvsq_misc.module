@@ -24,4 +24,16 @@ function vvsq_misc_preprocess_node(&$vars) {
   }
 }
 
-
+/**
+ * Add user role to body classes
+ *
+ * @param $vars
+ */
+function vvsq_misc_preprocess_html(&$vars) {
+  if ($vars['user']) {
+    foreach($vars['user']->roles as $key => $role){
+      $role_class = 'role-' . str_replace(' ', '-', $role);
+      $vars['classes_array'][] = $role_class;
+    }
+  }
+}
