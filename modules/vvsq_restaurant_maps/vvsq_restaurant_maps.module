@@ -52,7 +52,7 @@ function vvsq_restaurant_maps_block_view($delta = "") {
       if (user_access("access content")) {
         $node = node_load(arg(1));
         // if latitude is set show a map
-        if (array_key_exists($node->language, $node->field_latitude)) {
+        if ($node && array_key_exists($node->language, $node->field_latitude)) {
           drupal_add_js($maps_url, "external");
           //$block["subject"] = t("@rest Location", array("@rest" => $node->title));
           $block["content"] = theme("vvsq_restaurant_map", array(
