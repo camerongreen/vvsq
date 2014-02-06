@@ -219,4 +219,56 @@ body {
       }
     }
   }
+  &.role-public-user.page-node-add {
+    #edit-field-longitude,
+    #edit-field-latitude {
+      display: none;
+    }
+
+  }
+  &.page-node-edit {
+    #block-vvsq-restaurant-maps-vvsq-restaurant-map {
+      display: none;
+    }
+  }
+  li.update-restaurant a {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  }
+  &.page-restaurants,
+  &.page-restaurants-in {
+    span.register-link {
+      display: none;
+    }
+  }
+  &.page-restaurants.role-anonymous-user,
+  &.page-restaurants-in.role-anonymous-user {
+    span.register-link {
+      display: inline;
+    }
+  }
+  span.register-link {
+    display: none;
+  }
+  #block-block-3 {
+    ul {
+      li.login {
+        display: none;
+      }
+      li.logout {
+        display: block;
+      }
+    }
+  }
+  &.role-anonymous-user {
+    #block-block-3 {
+      ul {
+        li.login {
+          display: block;
+        }
+        li.logout {
+          display: none;
+        }
+      }
+    }
+  }
 }
