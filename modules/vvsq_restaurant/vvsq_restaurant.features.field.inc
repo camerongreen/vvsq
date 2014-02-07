@@ -147,7 +147,7 @@ function vvsq_restaurant_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_address',
       'label' => 'Address',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'text_processing' => '0',
         'user_register_form' => FALSE,
@@ -239,80 +239,6 @@ function vvsq_restaurant_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-restaurant-field_approved'.
-  $fields['node-restaurant-field_approved'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_approved',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => '',
-          1 => '',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_boolean',
-    ),
-    'field_instance' => array(
-      'bundle' => 'restaurant',
-      'default_value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '13',
-        ),
-        'event_teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_approved',
-      'label' => 'Approved',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'display_label' => 1,
-        ),
-        'type' => 'options_onoff',
-        'weight' => '13',
-      ),
-    ),
-  );
-
   // Exported field: 'node-restaurant-field_area'.
   $fields['node-restaurant-field_area'] = array(
     'field_config' => array(
@@ -346,7 +272,7 @@ function vvsq_restaurant_field_default_fields() {
       'bundle' => 'restaurant',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'City or region for the restaurant.  Put suburbs in the address field',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -371,7 +297,7 @@ function vvsq_restaurant_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_area',
       'label' => 'Area',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'text_processing' => '0',
         'user_register_form' => FALSE,
@@ -876,7 +802,11 @@ function vvsq_restaurant_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'restaurant',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => 'QLD',
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -903,7 +833,7 @@ function vvsq_restaurant_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_state',
       'label' => 'State',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'text_processing' => '0',
         'user_register_form' => FALSE,
@@ -912,7 +842,7 @@ function vvsq_restaurant_field_default_fields() {
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'size' => '60',
+          'size' => '3',
         ),
         'type' => 'text_textfield',
         'weight' => '6',
@@ -1086,9 +1016,9 @@ function vvsq_restaurant_field_default_fields() {
   t('Add your rating');
   t('Address');
   t('Alcohol');
-  t('Approved');
   t('Area');
   t('Body');
+  t('City or region for the restaurant.  Put suburbs in the address field');
   t('If this field is empty on either saving or updating a restaurant, an attempt at auto populating them from the address will be made.  If this doesn\'t work well, test modifying the address on a Google Maps search until the address can be found, or simply enter the latitude and longitude by hand.');
   t('Latitude');
   t('Longitude');

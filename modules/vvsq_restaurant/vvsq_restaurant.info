@@ -21,7 +21,6 @@ features[features_api][] = api:1
 features[field][] = node-restaurant-body
 features[field][] = node-restaurant-field_address
 features[field][] = node-restaurant-field_alcohol
-features[field][] = node-restaurant-field_approved
 features[field][] = node-restaurant-field_area
 features[field][] = node-restaurant-field_latitude
 features[field][] = node-restaurant-field_longitude
