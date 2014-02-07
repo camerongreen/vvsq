@@ -226,12 +226,13 @@ body {
     }
 
   }
+  &.page-restaurant-update,
   &.page-node-edit {
     #block-vvsq-restaurant-maps-vvsq-restaurant-map {
       display: none;
     }
   }
-  li.update-restaurant a {
+  li a {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   }
   &.page-restaurants,

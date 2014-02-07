@@ -1,0 +1,6 @@
+name = VVSQ Restaurant Helpers
+description = Various hooks etc that make restaurants work
+core = 7.x
+package = VVSQ
+version = 7.x-1.0
+project = vvsq_restaurant_helpers

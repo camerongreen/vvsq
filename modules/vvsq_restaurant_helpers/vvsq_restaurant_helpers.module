@@ -1,0 +1,146 @@
+<?php
+/**
+ * @file
+ * Provides helpers for the VVSQ restaurants functionality
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function vvsq_restaurant_helpers_menu() {
+  return array(
+    "restaurant-update/%node" => array(
+      "title" => t("Update Restaurant Information"),
+      "page callback" => "drupal_get_form",
+      "page arguments" => array('vvsq_restaurant_helpers_email', 1),
+      "access callback" => 'user_is_logged_in'
+    ),
+  );
+}
+
+/**
+ * form which emails the user
+ */
+function vvsq_restaurant_helpers_email($form, &$form_state, $node) {
+  $form['description'] = array(
+    '#type' => 'item',
+    '#title' => t("<h3>Suggest changes for @title</h3>", array("@title" => $node->title)),
+  );
+
+  $form['details'] = array(
+    '#type' => 'fieldset',
+    '#description' => t("Current details"),
+  );
+
+  $form['details']['address'] = array(
+    '#type' => 'item',
+    '#title' => t("Address: @address", array("@address" => $node->field_address[$node->language][0]['value'])),
+  );
+
+  $form['details']['area'] = array(
+    '#type' => 'item',
+    '#title' => t("Area: @area", array("@area" => $node->field_area[$node->language][0]['value'])),
+  );
+
+  $form['restaurant_title'] = array(
+    '#type' => 'hidden',
+    '#value' => $node->title
+  );
+
+  $form['restaurant_nid'] = array(
+    '#type' => 'hidden',
+    '#value' => $node->nid
+  );
+
+  $options = array(
+    'update' => t("Update details"),
+    'closed'  => t("Restaurant has closed")
+  );
+
+  $form['update_type'] = array(
+    '#type' => 'radios',
+    '#options' => $options,
+    '#required' => 'true',
+    '#title' => t('Update type'),
+    '#default_value' => 'update'
+  );
+
+  $form['changes'] = array(
+    '#type' => 'textarea',
+    '#required' => 'true',
+    '#title' => t('Information about changes'),
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+
+  return $form;
+}
+
+/**
+ * form which emails the user
+ */
+function vvsq_restaurant_helpers_email_submit($form, &$form_state) {
+  vvsq_restaurant_helpers_email_send($form_state['values']);
+  $nid = $form_state['values']['restaurant_nid'];
+  drupal_goto(url("node/" . $nid));
+}
+
+function vvsq_restaurant_helpers_email_send($params) {
+  $email = variable_get('site_mail', '');
+
+  $module = 'vvsq_restaurant_helpers';
+  $key = 'restaurant_update';
+  $to = $email;
+  $from = variable_get('site_mail', 'admin@example.com');
+  $language = language_default();
+  $send = TRUE;
+
+  $result = drupal_mail($module, $key, $to, $language, $params, $from, $send);
+
+  if ($result['result'] == TRUE) {
+    drupal_set_message(t('Thanks for your feedback.  It will be reviewed and the restaurant edited shortly.'));
+  }
+  else {
+    drupal_set_message(t('There was a problem sending this message. Please contact us using the email address in the header.'), 'error');
+  }
+}
+
+function vvsq_restaurant_helpers_mail($key, &$message, $params) {
+  global $user;
+
+  $options = array(
+    'langcode' => $message['language']->language,
+  );
+
+  switch($key) {
+    case 'restaurant_update':
+      $site_name = variable_get("site-name", "Drupal");
+      $message['subject'] = t('Restaurant update request from @site-name', array("@site-name" => variable_get("site-name", "Drupal")), $options);
+      $message['body'][] = t("Restaurant: @restaurant-title", array('@restaurant-title' => $params["restaurant_title"]), $options);
+      $message['body'][] = t("Restaurant Url: @restaurant-url", array('@restaurant-url' => url("/node" . $params["restaurant_nid"])), $options);
+      $message['body'][] = t("Suggesting user: @username", array('@username' => $user->name), $options);
+      $message['body'][] = t("Suggesting user email: @useremail", array('@useremail' => $user->mail), $options);
+      $message['body'][] = t("Update type: @update", array('@update' => $params["update_type"]), $options);
+      $message['body'][] = t("Details:\n\n@changes", array('@changes' => $params["changes"]), $options);
+      break;
+  }
+}
+
+/**
+ * Add links for restaurant nodes
+ *
+ * Implements hook_node_view_alter()
+ */
+function vvsq_restaurant_helpers_node_view_alter(&$build) {
+  if ($build["#node"]->type == "restaurant") {
+    $build['links']['node']['#links']['restaurant-update'] = array(
+      'title' => t('Update Restaurant Details'),
+      'href' => 'restaurant-update/' . $build["#node"]->nid,
+      'html' => TRUE,
+      'attributes' => array('rel' => 'tag', 'title' => "Update Restaurant")
+    );
+  }
+}
