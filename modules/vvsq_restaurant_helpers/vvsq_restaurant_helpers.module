@@ -120,7 +120,7 @@ function vvsq_restaurant_helpers_mail($key, &$message, $params) {
       $site_name = variable_get("site-name", "Drupal");
       $message['subject'] = t('Restaurant update request from @site-name', array("@site-name" => variable_get("site-name", "Drupal")), $options);
       $message['body'][] = t("Restaurant: @restaurant-title", array('@restaurant-title' => $params["restaurant_title"]), $options);
-      $message['body'][] = t("Restaurant Url: @restaurant-url", array('@restaurant-url' => url("/node" . $params["restaurant_nid"])), $options);
+      $message['body'][] = t("Restaurant Url: @restaurant-url", array('@restaurant-url' => url("/node/" . $params["restaurant_nid"], array("absolute" => true))), $options);
       $message['body'][] = t("Suggesting user: @username", array('@username' => $user->name), $options);
       $message['body'][] = t("Suggesting user email: @useremail", array('@useremail' => $user->mail), $options);
       $message['body'][] = t("Update type: @update", array('@update' => $params["update_type"]), $options);
