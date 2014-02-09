@@ -643,7 +643,7 @@ function vvsq_restaurant_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'restaurant',
       'deleted' => '0',
-      'description' => '',
+      'description' => 'These will be displayed in a slide show.  It will be displayed as a banner so the width should be three times the height.',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -1027,6 +1027,7 @@ function vvsq_restaurant_field_default_fields() {
   t('Pictures');
   t('Rating');
   t('State');
+  t('These will be displayed in a slide show.  It will be displayed as a banner so the width should be three times the height.');
   t('Vegetarian/Vegan');
   t('Website');
 
