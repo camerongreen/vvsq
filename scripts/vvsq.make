@@ -9,6 +9,8 @@ projects[addtoany][version] = "4"
 
 projects[admin_menu][version] = "3"
 
+projects[admin_views][version] = "1"
+
 projects[advanced_help][version] = "1"
 
 projects[advanced_forum][version] = "2"
