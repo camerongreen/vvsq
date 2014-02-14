@@ -122,7 +122,7 @@ function vvsq_restaurant_field_default_fields() {
       'bundle' => 'restaurant',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Please include the suburb in this field, and then go to Google Maps and make sure this address works in a search before entering here.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1025,6 +1025,7 @@ function vvsq_restaurant_field_default_fields() {
   t('Opening Times');
   t('Phone Number');
   t('Pictures');
+  t('Please include the suburb in this field, and then go to Google Maps and make sure this address works in a search before entering here.');
   t('Rating');
   t('State');
   t('These will be displayed in a slide show.  It will be displayed as a banner so the width should be three times the height.');
