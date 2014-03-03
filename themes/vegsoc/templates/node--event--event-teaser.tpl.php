@@ -131,8 +131,9 @@
       hide($content['links']);
       print render($content);
       ?>
-
-
+      <div class="event_teaser_link">
+        <?= l("Full details", "node/" . $node->nid); ?>
+      </div>
     </div>
   </div>
   <?php print render($content['comments']); ?>

@@ -1,6 +1,8 @@
 /*
   VVSQ colour scheme
 */
+/* Font Color */
+$font-color: #666;
 /* Light Gold */
 $llakacham: #F0F078;
 /* Medium Gold */
@@ -18,6 +20,9 @@ $black-text: #444;
 $top-bar-color: #FBFBFB;
 
 body {
+  font: 14px/21px "Open Sans", Helvetica, Arial, sans-serif;
+  color: $font-color;
+
   #header {
     padding: 1ex;
   }
@@ -36,6 +41,7 @@ body {
     }
     a div, a span {
       color: $bittersweet;
+      font-size: 12px;
     }
   }
   .product-feature > span {
@@ -84,6 +90,12 @@ body {
   }
   #content .region-content ul {
     list-style: disc;
+  }
+  #block-uc-cart-cart {
+    padding: 1em;
+    border-color: #DDD;
+    border-style: solid;
+    border-width: thin;
   }
   #uc-cart-view-form td {
     padding: 1ex;
