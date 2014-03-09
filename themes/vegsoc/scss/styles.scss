@@ -290,4 +290,11 @@ body {
       }
     }
   }
+  ol li, ul li {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: auto;
+  }
 }
