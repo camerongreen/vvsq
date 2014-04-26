@@ -297,4 +297,21 @@ body {
   input[type="password"] {
     width: auto;
   }
+  #views-exposed-form-uc-catalog-catalog {
+    div.form-item-items-per-page {
+      label {
+        display: block;
+        width: 16ex;
+        float: left;
+        padding-top: 9px;
+      }
+      div.controls {
+        width: 10ex;
+        float: left;
+      }
+    }
+    div.views-exposed-widget button.btn {
+      margin-top: 4px;
+    }
+  }
 }
