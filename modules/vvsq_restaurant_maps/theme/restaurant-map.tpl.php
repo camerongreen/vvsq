@@ -11,7 +11,7 @@
     var marker = new google.maps.Marker({
       position: myLatLng,
       map: map,
-      title: '<?= $node->title; ?>'
+      title: '<?= t('@title', array('@title' => $node->title)); ?>'
     });
   }
   google.maps.event.addDomListener(window, 'load', initialize);

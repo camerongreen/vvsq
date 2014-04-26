@@ -12,13 +12,13 @@
             $lng = $restaurant->field_longitude[$restaurant->language][0]['value'];
             print 'restaurant = new google.maps.LatLng(' . $lat . ',' . $lng . ');';
             print 'bounds.extend(restaurant);';
-            print <<<EOT
+            print '
        new google.maps.Marker({
          position: restaurant,
          map: map,
-         title: '$restaurant->title'
+         title: \'' . t('@title', array('@title' => $restaurant->title)) . '\'
        });
-EOT;
+';
          }
     ?>
     map.fitBounds(bounds);
