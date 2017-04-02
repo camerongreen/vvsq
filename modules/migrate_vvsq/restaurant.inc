@@ -5,7 +5,7 @@ class VvsqRestaurantsMigration extends Migration {
   public function __construct() {
     parent::__construct();
 
-    $query = Database::getConnection('default', 'vvsq_import')
+    $query = Database::getConnection('default', 'vvsq')
       ->select('restaurants', 'r')
       ->fields('r', array(
         'restaurantID',
@@ -46,14 +46,22 @@ class VvsqRestaurantsMigration extends Migration {
     $this->addFieldMapping('field_website', 'URL');
     $this->addFieldMapping('field_state', 'state_name');
     $this->addFieldMapping('field_approved', 'approved')->callbacks(array($this, 'setApproved'));
+    $this->addFieldMapping('status', 'approved')->callbacks(array($this, 'setApproved'));
   }
 
   protected function convertToTimestamp($str) {
-    return strtotime($str);
+    $time = strtotime($str);
+    if ($time) {
+      return $time;
+    }
+    return time();
   }
 
   protected function setApproved($approved) {
-    return $approved;
+    if (is_numeric($approved) && $approved == 1) {
+      return $approved;
+    }
+    return 0;
   }
 
   protected function setType($type) {
