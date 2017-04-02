@@ -5,7 +5,7 @@ class VvsqRestaurantsMigration extends Migration {
   public function __construct() {
     parent::__construct();
 
-    $query = Database::getConnection('default', 'vvsq')
+    $query = Database::getConnection('default', 'default')
       ->select('restaurants', 'r')
       ->fields('r', array(
         'restaurantID',
